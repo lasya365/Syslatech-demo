@@ -1,0 +1,14 @@
+---
+const { question, answer } = Astro.props;
+---
+
+<details class="faq-item" name="syslatech-faq">
+  <summary class="faq-question">
+    <span class="faq-question-text">{question}</span>
+    <span class="faq-chevron" aria-hidden="true"></span>
+  </summary>
+
+  <div class="faq-answer">
+    <p>{answer}</p>
+  </div>
+</details>
