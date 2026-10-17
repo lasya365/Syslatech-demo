@@ -1,0 +1,106 @@
+/* Main section */ 
+.why-section { 
+  padding: 60px 20px; /* Increased vertical breathing room for a premium feel */
+  background: linear-gradient(110deg, #399fc4, #32c59c); 
+  color: #ffffff; 
+  font-family: Arial, Helvetica, sans-serif; /* Your exact font stack */
+} 
+
+/* Outer container */ 
+.why-section__container { 
+  max-width: 1100px; /* Refined width for cleaner line lengths and readability */
+  margin: 0 auto; 
+  padding: 40px 60px; 
+  background: rgba(255, 255, 255, 0.04); /* Soft transparent backdrop */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Softer, elegant modern border */
+  border-radius: 14px; 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Subtle shadow for modern depth */
+} 
+
+/* Four vertical rows */ 
+.why-section__list { 
+  display: flex; 
+  flex-direction: column; 
+} 
+
+/* One horizontal row */ 
+.why-item { 
+  display: grid; 
+  grid-template-columns: 60px 250px 1fr; /* Properly proportioned layout columns */
+  align-items: center; 
+  gap: 32px; /* Increased whitespace gap for an uncluttered look */
+  padding: 32px 16px; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  border-radius: 8px;
+} 
+
+/* Smooth modern hover micro-interaction */
+.why-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateX(6px);
+}
+
+/* Remove the border from the last row */ 
+.why-item:last-child { 
+  border-bottom: none; 
+} 
+
+/* Icon wrapping */ 
+.why-item__icon { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-size: 26px; 
+  background: rgba(255, 255, 255, 0.12); /* Circular baseline frame for the icons */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+} 
+
+/* Title styling */ 
+.why-item__title { 
+  margin: 0; 
+  font-size: 20px; 
+  font-weight: 600; 
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+} 
+
+/* Description styling */ 
+.why-item__description { 
+  margin: 0; 
+  font-size: 14.5px; 
+  line-height: 1.75; 
+  color: rgba(255, 255, 255, 0.9); /* Slightly soft white for ideal text readability balance */
+} 
+
+/* Tablet and mobile layout */ 
+@media (max-width: 768px) { 
+  .why-section__container { 
+    padding: 24px 20px; 
+  } 
+  
+  .why-item { 
+    grid-template-columns: 1fr; /* Stack items vertically into perfect center focus */
+    text-align: center;
+    gap: 16px; 
+    padding: 24px 12px; 
+  } 
+
+  .why-item:hover {
+    transform: none; /* Disable shift interaction on smaller viewports */
+  }
+  
+  .why-item__icon { 
+    margin: 0 auto; /* Horizontally center the icon container */
+  } 
+  
+  .why-item__title { 
+    font-size: 19px; 
+  } 
+  
+  .why-item__description { 
+    font-size: 14px; 
+  } 
+}

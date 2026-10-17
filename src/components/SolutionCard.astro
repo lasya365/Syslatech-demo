@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import "../styles/solution-card.css";
+
+const { title, subtitle, description, icon, href } = Astro.props;
+---
+
+<a
+  class="solution-card"
+  href={href}
+  aria-label={`${title}: ${description}`}
+>
+  <div class="solution-hover-content">
+    <div class="solutions-icons-images-wrapper">
+      <Image src={icon} alt="" />
+    </div>
+
+    <h3 class="solution-title">{title}</h3>
+    <h4 class="solution-subtitle">{subtitle}</h4>
+    <p class="solution-description">{description}</p>
+  </div>
+
+  <span class="solution-arrow" aria-hidden="true">↗</span>
+</a>
