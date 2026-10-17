@@ -1,0 +1,745 @@
+
+/* ==============================
+   SYSLATECH HEADER — NAVY & BLUE
+============================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --header-navy: #081727;
+  --header-navy-light: #10243a;
+  --header-blue: #3fa5d0;
+  --header-blue-bright: #3b82f6;
+  --header-muted: #aab8c7;
+  --header-white: #ffffff;
+  --header-text: #f4f4f4;
+  --header-border: rgba(170, 184, 199, 0.18);
+  --header-blue-light: rgba(59, 130, 246, 0.12);
+  --header-shadow: 0 22px 55px rgba(36, 124, 218, 0.24);
+  --header-font: "Manrope", sans-serif;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.site-header,
+.site-header * {
+  box-sizing: border-box;
+}
+.site-header {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  color: var(--header-white);
+  background: #081829;
+  border-bottom: 1px solid rgba(9, 100, 196, 0.2);
+  font-family: var(--header-font);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+} 
+
+
+.site-header.is-scrolled {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: var(--header-white);
+  background: rgba(8, 23, 39, 0.97);
+  border-bottom-color: var(--header-border);
+  box-shadow: 0 8px 28px rgba(8, 23, 39, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  width: min(1440px, 100%);
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 64px);
+}
+
+/* ==============================
+   LOGO
+============================== */
+
+.brand {
+  display: inline-flex;
+  flex: 0 0 178px;
+  align-items: center;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.brand-image {
+  display: block;
+  width: 178px;
+  max-width: 100%;
+  height: 48px;
+  object-fit: contain;
+  object-position: left center;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.brand:hover .brand-image {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(63, 165, 208, 0.4));
+}
+/* ==============================
+   MAIN NAVIGATION
+============================== */
+
+.main-nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 0;
+}
+
+.nav-item {
+  position: static;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 10px 11px;
+  border: 0;
+  border-radius: 7px;
+  color: inherit;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Navigation underline */
+
+.nav-link::after {
+  position: absolute;
+  right: 11px;
+  bottom: 5px;
+  left: 11px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--header-blue);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-item.is-open > .nav-link::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover,
+.nav-item.is-open > .nav-link {
+  color: var(--header-blue-bright);
+}
+
+.nav-chevron {
+  flex-shrink: 0;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item.is-open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Keyboard focus */
+
+.nav-link:focus-visible,
+.contact-button:focus-visible,
+.mobile-toggle:focus-visible,
+.mega-card:focus-visible,
+.mega-view-all:focus-visible {
+  outline: 2px solid var(--header-blue-bright);
+  outline-offset: 3px;
+}
+
+/* ==============================
+   CONTACT BUTTON
+============================== */
+
+.contact-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 45px;
+  margin-left: 7px;
+  padding: 0 18px;
+  border: 1px solid var(--header-blue);
+  border-radius: 7px;
+  color: var(--header-white);
+  background: var(--header-blue);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-button:hover {
+  color: var(--header-white);
+  background: var(--header-blue-bright);
+  border-color: var(--header-blue-bright);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.contact-button i {
+  font-size: 14px;
+}
+
+/* ==============================
+   FULL-WIDTH MEGA MENUS
+============================== */
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+  padding: 30px clamp(24px, 4vw, 64px) 34px;
+  color: var(--header-text);
+  background: var(--header-navy);
+  border-top: 1px solid var(--header-border);
+  border-bottom: 1px solid var(--header-border);
+  box-shadow: var(--header-shadow);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: auto;
+
+  /* Do not translate the menu through a hover gap. */
+  transform: none;
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease;
+}
+
+/* Invisible hover bridge */
+
+.mega-menu::before {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  left: 0;
+  height: 8px;
+  content: "";
+}
+
+/* Desktop hover, keyboard focus, and click states */
+
+@media (min-width: 901px) {
+  .nav-item:hover > .mega-menu,
+  .nav-item:focus-within > .mega-menu,
+  .nav-item.is-open > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.mega-menu-inner {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.72fr) minmax(0, 2fr);
+  gap: clamp(24px, 3vw, 48px);
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+/* Dropdown introduction */
+
+.mega-intro {
+  padding: 7px 25px 12px 0;
+  border-right: 1px solid var(--header-border);
+}
+
+.mega-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--header-blue-bright);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.mega-intro h2 {
+  max-width: 280px;
+  margin: 0 0 12px;
+  color: var(--header-white);
+  font-size: clamp(22px, 2vw, 29px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.mega-intro p {
+  max-width: 310px;
+  margin: 0 0 21px;
+  color: var(--header-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.mega-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--header-blue-bright);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.mega-view-all:hover {
+  color: var(--header-white);
+}
+
+.mega-view-all i {
+  transition: transform 0.2s ease;
+}
+
+.mega-view-all:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* ==============================
+   DROPDOWN CARDS
+============================== */
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mega-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  min-height: 112px;
+  padding: 15px 27px 15px 14px;
+  border: 1px solid rgba(170, 184, 199, 0.1);
+  border-radius: 10px;
+  color: var(--header-text);
+  background: var(--header-navy-light);
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mega-card:hover {
+  background: #142d49;
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  display: flex;
+  flex: 0 0 39px;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 9px;
+  color: var(--header-blue-bright);
+  background: rgba(37, 99, 235, 0.12);
+  font-size: 18px;
+}
+
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.card-content strong {
+  color: var(--header-white);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.card-content small {
+  color: var(--header-muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--header-muted);
+  font-size: 12px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mega-card:hover .card-arrow {
+  color: var(--header-blue-bright);
+  transform: translate(2px, -2px);
+}
+
+/* Tool logos */
+
+.mega-menu-tools .card-icon {
+  display: flex;
+  flex: 0 0 39px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-menu-tools .tool-logo {
+  display: block;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* ==============================
+   MOBILE MENU BUTTON
+============================== */
+
+.mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid rgba(170, 184, 199, 0.4);
+  border-radius: 8px;
+  color: var(--header-white);
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.site-header.menu-open .mobile-toggle span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.menu-open .mobile-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .mobile-toggle span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==============================
+   SMALL DESKTOP / TABLET
+============================== */
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .header-inner {
+    gap: 14px;
+    padding-inline: 22px;
+  }
+
+  .brand {
+    flex-basis: 145px;
+  }
+
+  .brand-image {
+    width: 145px;
+  }
+
+  .nav-link {
+    gap: 5px;
+    padding-inline: 7px;
+    font-size: 11px;
+  }
+
+  .contact-button {
+    gap: 6px;
+    margin-left: 3px;
+    padding-inline: 11px;
+    font-size: 11px;
+  }
+
+  .mega-menu {
+    padding-inline: 24px;
+  }
+
+  .mega-menu-inner {
+    grid-template-columns: minmax(180px, 0.65fr) minmax(0, 2fr);
+    gap: 22px;
+  }
+
+  .mega-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==============================
+   MOBILE / TABLET NAVIGATION
+============================== */
+
+@media (max-width: 900px) {
+  .header-inner {
+    position: relative;
+    min-height: 76px;
+    padding-inline: 22px;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .brand {
+    flex-basis: 158px;
+  }
+
+  .brand-image {
+    width: 158px;
+    height: 44px;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    max-height: calc(100dvh - 76px);
+    padding: 14px 22px 22px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--header-text);
+    background: var(--header-navy);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: var(--header-shadow);
+  }
+
+  .site-header.menu-open .main-nav {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 10px;
+    color: var(--header-white);
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover,
+  .nav-item.is-open > .nav-link {
+    color: var(--header-blue-bright);
+    background: var(--header-blue-light);
+  }
+
+  .mega-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    max-height: none;
+    padding: 12px 0 16px;
+    overflow: visible;
+    border: 0;
+    border-radius: 8px;
+    background: #0c1d30;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+  }
+
+  /* On mobile, tapping controls the dropdown. */
+  .nav-item:hover > .mega-menu,
+  .nav-item:focus-within > .mega-menu {
+    display: none;
+  }
+
+  .nav-item.is-open > .mega-menu {
+    display: block;
+  }
+
+  .mega-menu::before {
+    display: none;
+  }
+
+  .mega-menu-inner {
+    display: block;
+    width: 100%;
+  }
+
+  .mega-intro {
+    padding: 8px 14px 16px;
+    border-right: 0;
+  }
+
+  .mega-eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .mega-intro h2 {
+    max-width: none;
+    margin-bottom: 7px;
+    font-size: 21px;
+  }
+
+  .mega-intro p {
+    max-width: none;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .mega-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 0 8px;
+  }
+
+  .mega-card {
+    min-height: 80px;
+    padding: 12px 30px 12px 12px;
+    background: var(--header-navy-light);
+  }
+
+  .card-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .card-content strong {
+    font-size: 12px;
+  }
+
+  .card-content small {
+    font-size: 11px;
+  }
+
+  .simple-link {
+    justify-content: flex-start;
+  }
+
+  .contact-button {
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin: 8px 0 0;
+  }
+}
+
+/* Smaller phones */
+
+@media (max-width: 420px) {
+  .header-inner {
+    padding-inline: 16px;
+  }
+
+  .brand {
+    flex-basis: 145px;
+  }
+
+  .brand-image {
+    width: 145px;
+  }
+
+  .main-nav {
+    padding-inline: 16px;
+  }
+}
+
+/* ==============================
+   ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .nav-link,
+  .nav-chevron,
+  .contact-button,
+  .mega-menu,
+  .mega-card,
+  .card-arrow,
+  .mobile-toggle span {
+    transition: none;
+  }
+}
