@@ -6,7 +6,7 @@
   padding: 64px 24px 70px;
   background: #F3F6F8;
   color: #081727;
-  font-family: "DM Sans", sans-serif;
+  font-family: inherit;
 }
 
 .faq-container {
@@ -19,7 +19,7 @@
 .faq-title {
   margin: 0 auto 38px;
   color: #081727;
-  font-family: "Manrope", sans-serif;
+  font-family: inherit;
   font-size: clamp(2rem, 3.5vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.04em;

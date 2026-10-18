@@ -1,17 +1,20 @@
+
 /* Solutions Section */
 @import "./utilities.css";
 
 .solutions-section {
   position: relative;
   padding: 8px 24px 18px;
+
   background: linear-gradient(
     115deg,
     #2e7da6 0%,
     #35a9ad 52%,
     #43c8ad 100%
   );
+
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   overflow: hidden;
 }
 
@@ -32,6 +35,7 @@
   width: 100%;
   max-width: 800px;
   margin-inline: auto;
+
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   align-items: stretch;

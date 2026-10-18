@@ -18,7 +18,7 @@
   background-color: #081727;
   color: #ffffff;
   text-align: center;
-  font-family: "DM Sans", sans-serif;
+  font-family: inherit;
 }
 
 /* Subtle royal-blue glow */
@@ -62,7 +62,7 @@
   max-width: none;
   margin: 0 auto;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
+  font-family: inherit;
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.035em;

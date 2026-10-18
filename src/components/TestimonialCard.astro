@@ -1,0 +1,15 @@
+
+---
+const { testimonial, index } = Astro.props;
+---
+
+<article
+  class="testimonial-card"
+  data-index={index}
+  data-position="hidden"
+  aria-current="false"
+>
+  <p class="testimonial-text">{testimonial.text}</p>
+
+  <p class="testimonial-author">{testimonial.author}</p>
+</article>

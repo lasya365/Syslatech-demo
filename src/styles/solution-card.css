@@ -1,3 +1,4 @@
+
 /* Individual Solution Card */
 
 .solution-card {
@@ -36,6 +37,39 @@
   background: #fff;
   transform: translateY(101%);
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animated gradient border */
+.solution-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 0deg,
+    #ffffff 70deg,
+    #5eead4 140deg,
+    transparent 210deg,
+    transparent 360deg
+  );
+
+  /* Show only the border ring */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  opacity: 0;
 }
 
 /* Card content */
@@ -146,7 +180,7 @@
 .solution-card:hover,
 .solution-card:focus-visible {
   z-index: 1;
-  border-color: #fff;
+  border-color: transparent;
   box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
   transform: translateY(-2px);
   color: #111;
@@ -156,6 +190,13 @@
 .solution-card:hover::before,
 .solution-card:focus-visible::before {
   transform: translateY(0);
+}
+
+/* Animate the border on hover or keyboard focus */
+.solution-card:hover::after,
+.solution-card:focus-visible::after {
+  opacity: 1;
+  animation: solution-border-spin 2s linear infinite;
 }
 
 /* Change icon from white to dark */
@@ -199,6 +240,20 @@
   outline-offset: 4px;
 }
 
+/* Allow the gradient angle to animate */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Border rotation animation */
+@keyframes solution-border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
 /* Tablet */
 @media (max-width: 760px) {
   .solution-card {
@@ -228,19 +283,25 @@
   }
 }
 
-/* Accessibility */
+/* Accessibility: respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .solution-card,
   .solution-card::before,
+  .solution-card::after,
   .solution-card *,
   .solution-card:hover,
   .solution-card:focus-visible {
     transition: none;
-    transform: none;
+    animation: none;
   }
 
   .solution-card:hover::before,
   .solution-card:focus-visible::before {
     transform: none;
+  }
+
+  .solution-card:hover::after,
+  .solution-card:focus-visible::after {
+    opacity: 0;
   }
 }

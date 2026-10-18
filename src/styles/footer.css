@@ -20,7 +20,7 @@
   padding: 64px 7% 0;
   background: #142d46;
   color: var(--footer-white);
-  font-family: "DM Sans", sans-serif;
+  font-family: inherit;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -67,7 +67,7 @@
 .footer-column h2 {
   margin: 5px 0 25px;
   color: var(--footer-white);
-  font-family: "Manrope", sans-serif;
+  font-family: inherit;
   font-size: 17px;
   font-weight: 700;
   line-height: 1.5;
@@ -217,7 +217,7 @@
   border-radius: 7px;
   background: var(--footer-blue);
   color: #fff;
-  font-family: "Manrope", sans-serif;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
