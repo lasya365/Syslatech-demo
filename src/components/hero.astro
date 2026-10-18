@@ -1,0 +1,49 @@
+---
+import "../styles/hero.scss";
+import { slides } from "../data/heroData.js";
+import logo from "../assets/Tools/Logo.png";
+---
+<section class="hero-carousel" aria-label="Featured solutions">
+  <button class="arrow previous" aria-label="Previous slide">
+    &#10094;
+  </button>
+
+  <div class="carousel-panel">
+    {slides.map((slide, index) => (
+      <article class:list={["slide", { active: index === 0 }]}>
+        <div class="slide-content">
+         <img
+            class="slide-logo"
+            src={logo.src}
+            alt="Syslatech logo"
+        />
+
+          <h1>{slide.title}</h1>
+          <p>{slide.description}</p>
+        </div>
+
+        <div class="slide-visual">
+            <img src={slide.image.src} alt={slide.title} />
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <button class="arrow next" aria-label="Next slide">
+    &#10095;
+  </button>
+
+  <div class="dots" aria-label="Choose slide">
+    {slides.map((slide, index) => (
+      <button
+        class:list={["dot", { active: index === 0 }]}
+        aria-label={`Go to slide ${index + 1}`}
+        aria-current={index === 0 ? "true" : undefined}
+      ></button>
+    ))}
+  </div>
+</section>
+
+<script>
+  import "../scripts/hero.js";
+</script>

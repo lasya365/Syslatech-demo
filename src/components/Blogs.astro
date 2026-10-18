@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import { blogs } from "../data/blogsData.js";
+import "../styles/blogs.css";
+---
+<section class="blogs-section" id="blogs">
+  <div class="blogs-container">
+    <div class="blogs-heading">
+      <span class="blogs-eyebrow">OUR BLOGS</span>
+
+      <h2>
+        Insights, Ideas &amp;
+        <span>Industry Trends</span>
+      </h2>
+
+      <p>
+        Stay updated with the latest in software testing, quality engineering,
+        and technology trends. Explore our blogs for expert insights, practical
+        tips and industry perspectives.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+      {blogs.map((blog) => (
+        <article class="blog-card">
+          <a href={blog.href} class="blog-image" aria-label={blog.title}>
+            <Image
+                src={blog.image}
+                alt={blog.alt}
+                loading="lazy"
+            />
+          </a>
+
+          <div class="blog-content">
+            <span class="blog-category">{blog.category}</span>
+
+            <h3 class="blog-card-title">
+              {blog.title}
+            </h3>
+
+            <p class="blog-card-para">
+              {blog.description}
+            </p>
+
+            <a href={blog.href} class="read-more-btn">
+              Read More
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="blogs-footer">
+      <a href="/Blogs/blogs1.html" class="view-all-blogs">
+        View All Blogs
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

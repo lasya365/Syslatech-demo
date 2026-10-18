@@ -1,21 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/header.astro";
+import Hero from "../components/hero.astro";
+import WhoWeAre from "../components/WhoWeAre.astro";
+import Blogs from "../components/Blogs.astro";
+
 import Solutions from "../components/Solutions.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
 import Testimonials from "../components/Testimonials.astro";
 import FAQSection from "../components/FAQSection.astro";
 import CTASection from "../components/CTASection.astro";
+
+import "../styles/global.css";
 ---
 
 <Layout
-  title="Syslatech | Footer Preview"
-  description="Syslatech footer preview with company information and contact details."
+  title="Syslatech | Software Quality Engineering"
+  description="Explore Syslatech software testing and quality engineering solutions."
 >
+  <Header />
   <main>
+    <Hero />
+    <WhoWeAre />
+    <Blogs />
     <Solutions />
     <WhyChooseUs />
     <Testimonials />
-	  <FAQSection />
+    <FAQSection />
     <CTASection />
   </main>
 </Layout>
