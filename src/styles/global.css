@@ -1,0 +1,22 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --font-primary: "Manrope", sans-serif;
+}
+
+html {
+  font-family: var(--font-primary);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
