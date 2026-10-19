@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import "../styles/trusted-clients.css";
+
+import client1 from "../assets/Trusted-clients/client-1.webp";
+import client2 from "../assets/Trusted-clients/client-2.webp";
+import client3 from "../assets/Trusted-clients/client-3.webp";
+import client4 from "../assets/Trusted-clients/client-4.webp";
+import client5 from "../assets/Trusted-clients/client-5.webp";
+import client6 from "../assets/Trusted-clients/client-6.webp";
+import client7 from "../assets/Trusted-clients/client-7.webp";
+import client8 from "../assets/Trusted-clients/client-8.webp";
+import client9 from "../assets/Trusted-clients/client-9.webp";
+
+const clients = [
+  { name: "Lender Price", image: client1 },
+  { name: "IIFL Home Loan", image: client2 },
+  { name: "bluecopa", image: client3 },
+  { name: "atomicwork", image: client4 },
+  { name: "OWIT Global", image: client5 },
+  { name: "redabl", image: client6 },
+  { name: "ActiGraph", image: client7 },
+  { name: "CloudByz", image: client8 },
+  { name: "alloc8", image: client9 },
+];
+---
+
+<section class="trusted-clients" aria-label="Our trusted clients">
+  <div class="trusted-clients__container">
+    <p class="trusted-clients__heading">Our trusted clients</p>
+
+    <div class="trusted-clients__marquee">
+      <div class="trusted-clients__track">
+        <div class="trusted-clients__group">
+          {clients.map((client) => (
+            <div class="trusted-clients__logo">
+                <Image
+                    src={client.image}
+                    alt={client.name}
+                    loading="lazy"
+                />
+            </div>
+          ))}
+        </div>
+
+        <div class="trusted-clients__group" aria-hidden="true">
+            {clients.map((client) => (
+            <div class="trusted-clients__logo">
+               <Image
+                    src={client.image}
+                    alt=""
+                    loading="lazy"
+                />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
