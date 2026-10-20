@@ -1,61 +1,64 @@
 ---
-import { Image } from "astro:assets";
+import BlogsCard from "./BlogsCard.astro";
 import { blogs } from "../data/BlogsData.js";
-import "../styles/Blogs.css";
 ---
-<section class="blogs-section" id="blogs">
-  <div class="blogs-container">
-    <div class="blogs-heading">
-      <span class="blogs-eyebrow">OUR BLOGS</span>
 
-      <h2>
+<section
+  id="blogs"
+  class="relative overflow-hidden bg-[radial-gradient(ellipse_at_15%_0%,rgba(26,83,139,0.22),transparent_42%),linear-gradient(135deg,#061426,#091d35_55%,#06172b)] px-[5%] py-[60px] font-sans text-[#f5f8ff] min-[651px]:py-[75px] min-[1001px]:px-[5%] min-[1001px]:py-[90px]"
+>
+  <div class="mx-auto w-full max-w-[1380px]">
+
+    <!-- Section heading -->
+    <div class="mx-auto mb-8 max-w-[850px] text-center min-[651px]:mb-12">
+      <span
+        class="mb-5 inline-flex items-center gap-[14px] text-[15px] font-extrabold tracking-[2px] text-[#22c5f5] before:h-0.5 before:w-8 before:bg-[#22c5f5] before:content-[''] after:h-0.5 after:w-8 after:bg-[#22c5f5] after:content-['']"
+      >
+        OUR BLOGS
+      </span>
+
+      <h2
+        class="mb-[18px] text-[30px] font-extrabold leading-[1.2] tracking-[-0.7px] text-[#f8fafc] min-[651px]:text-[clamp(30px,4vw,48px)] min-[651px]:tracking-[-1.4px]"
+      >
         Insights, Ideas &amp;
-        <span>Industry Trends</span>
+        <span class="text-[#20b8ee]">Industry Trends</span>
       </h2>
 
-      <p>
+      <p
+        class="mx-auto max-w-[780px] text-sm leading-[1.8] text-[#b9cbe1] min-[651px]:text-base"
+      >
         Stay updated with the latest in software testing, quality engineering,
         and technology trends. Explore our blogs for expert insights, practical
         tips and industry perspectives.
       </p>
     </div>
 
-    <div class="blog-grid">
-      {blogs.map((blog) => (
-        <article class="blog-card">
-          <a href={blog.href} class="blog-image" aria-label={blog.title}>
-            <Image
-                src={blog.image}
-                alt={blog.alt}
-                loading="lazy"
-            />
-          </a>
-
-          <div class="blog-content">
-            <span class="blog-category">{blog.category}</span>
-
-            <h3 class="blog-card-title">
-              {blog.title}
-            </h3>
-
-            <p class="blog-card-para">
-              {blog.description}
-            </p>
-
-            <a href={blog.href} class="read-more-btn">
-              Read More
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </article>
+    <!-- Blog grid -->
+    <div class="grid grid-cols-1 items-stretch gap-[22px] min-[651px]:grid-cols-2 min-[651px]:gap-[22px] min-[1001px]:grid-cols-3 min-[1001px]:gap-7">
+      {blogs.map((blog, index) => (
+        <BlogsCard
+          blog={blog}
+          isLast={index === blogs.length - 1}
+        />
       ))}
     </div>
 
-    <div class="blogs-footer">
-      <a href="/Blogs/blogs1.html" class="view-all-blogs">
+    <!-- View all blogs -->
+    <div class="mt-[30px] flex justify-center min-[651px]:mt-[38px]">
+      <a
+        href="/Blogs/blogs1.html"
+        class="group/link inline-flex min-h-[50px] items-center justify-center gap-3 rounded-full border-[1.5px] border-[#20c5f5] px-7 text-[15px] font-extrabold text-[#28c6f4] no-underline transition-[background-color,color,box-shadow] duration-300 ease-in-out hover:bg-[#20c5f5] hover:text-[#061426] hover:shadow-[0_0_24px_rgba(32,197,245,0.22)] motion-reduce:transition-none"
+      >
         View All Blogs
-        <span aria-hidden="true">→</span>
+
+        <span
+          aria-hidden="true"
+          class="inline-block text-[22px] transition-transform duration-300 group-hover/link:translate-x-[5px] motion-reduce:transition-none motion-reduce:group-hover/link:translate-x-0"
+        >
+          →
+        </span>
       </a>
     </div>
+
   </div>
 </section>

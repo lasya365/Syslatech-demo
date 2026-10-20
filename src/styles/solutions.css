@@ -1,0 +1,78 @@
+
+/* Solutions Section */
+@import "./utilities.css";
+
+.solutions-section {
+  position: relative;
+  padding: 8px 24px 18px;
+
+  background: linear-gradient(
+    115deg,
+    #2e7da6 0%,
+    #35a9ad 52%,
+    #43c8ad 100%
+  );
+
+  color: #fff;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+/* Section Heading */
+.solutions-heading {
+  margin: 0 0 48px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Responsive Card Grid */
+.solutions-grid {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+  .solutions-section {
+    padding: 24px 22px 36px;
+  }
+
+  .solutions-heading {
+    margin-bottom: 32px;
+    font-size: 23px;
+  }
+
+  .solutions-grid {
+    max-width: 560px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .solutions-section {
+    padding: 24px 16px 32px;
+  }
+
+  .solutions-heading {
+    margin-bottom: 26px;
+    font-size: 21px;
+  }
+
+  .solutions-grid {
+    max-width: 340px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

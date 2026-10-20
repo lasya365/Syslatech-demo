@@ -1,6 +1,6 @@
+
 ---
 import { Image } from "astro:assets";
-import "../styles/trusted-clients.css";
 
 import client1 from "../assets/Trusted-clients/client-1.webp";
 import client2 from "../assets/Trusted-clients/client-2.webp";
@@ -25,36 +25,73 @@ const clients = [
 ];
 ---
 
-<section class="trusted-clients" aria-label="Our trusted clients">
-  <div class="trusted-clients__container">
-    <p class="trusted-clients__heading">Our trusted clients</p>
+<section
+  aria-label="Our trusted clients"
+  class="overflow-hidden bg-[linear-gradient(110deg,#d4edff,#f5fbff)] px-[5%] py-[35px] min-[761px]:px-[5.8%] min-[761px]:py-[45px]"
+>
+  <div class="mx-auto w-full max-w-[1250px]">
+    <p
+      class="mb-[22px] text-center font-['Manrope',sans-serif] text-[15px] font-bold text-[#081727] min-[761px]:mb-[30px] min-[761px]:text-[17px]"
+    >
+      Our trusted clients
+    </p>
 
-    <div class="trusted-clients__marquee">
-      <div class="trusted-clients__track">
-        <div class="trusted-clients__group">
-          {clients.map((client) => (
-            <div class="trusted-clients__logo">
-                <Image
-                    src={client.image}
-                    alt={client.name}
-                    loading="lazy"
-                />
-            </div>
-          ))}
-        </div>
-
-        <div class="trusted-clients__group" aria-hidden="true">
+    <div
+      class="trusted-clients-marquee relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,#000_5%,#000_95%,transparent)] motion-reduce:overflow-x-auto motion-reduce:[mask-image:none] motion-reduce:[-webkit-mask-image:none]"
+    >
+      <div class="trusted-clients-track flex w-max motion-reduce:animate-none">
+        {[0, 1].map((copy) => (
+          <div
+            class="flex shrink-0 items-center gap-[30px] pr-[30px] min-[761px]:gap-[55px] min-[761px]:pr-[55px]"
+            aria-hidden={copy === 1 ? "true" : undefined}
+          >
             {clients.map((client) => (
-            <div class="trusted-clients__logo">
-               <Image
-                    src={client.image}
-                    alt=""
-                    loading="lazy"
+              <div
+                class="flex h-[60px] w-[110px] shrink-0 items-center justify-center min-[761px]:h-[75px] min-[761px]:w-[145px]"
+              >
+                <Image
+                  src={client.image}
+                  alt={copy === 1 ? "" : client.name}
+                  loading="lazy"
+                  class="block h-auto max-h-[45px] w-auto max-w-full object-contain transition-transform duration-300 ease-in-out hover:scale-[1.08] min-[761px]:max-h-[58px] motion-reduce:transition-none motion-reduce:hover:scale-100"
                 />
-            </div>
-          ))}
-        </div>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .trusted-clients-track {
+    animation: clients-scroll 35s linear infinite;
+  }
+
+  .trusted-clients-marquee:hover .trusted-clients-track {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 760px) {
+    .trusted-clients-track {
+      animation-duration: 28s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trusted-clients-track {
+      animation: none;
+    }
+  }
+
+  @keyframes clients-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>

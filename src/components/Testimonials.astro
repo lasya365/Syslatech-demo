@@ -1,0 +1,70 @@
+
+---
+import TestimonialCard from "./TestimonialCard.astro";
+import { testimonials, initialIndex } from "../data/testimonials.js";
+import "../styles/testimonials.css";
+---
+
+<section
+  class="testimonials-section"
+  aria-labelledby="testimonials-heading"
+>
+  <header class="testimonials-heading">
+    <p class="testimonials-label">TESTIMONIALS</p>
+
+    <h2 id="testimonials-heading">
+      VOICES OF TRUST: CLIENT STORIES, TESTIMONIALS THAT
+      ILLUMINATE OUR SHARED SUCCESS.
+    </h2>
+  </header>
+
+  <div class="testimonials-carousel">
+    <button
+      class="testimonial-arrow testimonial-prev"
+      type="button"
+      aria-label="Previous testimonial"
+    >
+      &lt;
+    </button>
+
+    <div class="testimonial-track">
+      {
+        testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            testimonial={testimonial}
+            index={index}
+          />
+        ))
+      }
+    </div>
+
+    <button
+      class="testimonial-arrow testimonial-next"
+      type="button"
+      aria-label="Next testimonial"
+    >
+      &gt;
+    </button>
+  </div>
+
+  <nav
+    class="testimonial-dots"
+    aria-label="Choose a testimonial"
+  >
+    {
+      testimonials.map((testimonial, index) => (
+        <button
+          class="testimonial-dot"
+          type="button"
+          data-dot-index={index}
+          aria-label={`Show testimonial ${index + 1}`}
+          aria-current={index === initialIndex ? "true" : "false"}
+        ></button>
+      ))
+    }
+  </nav>
+</section>
+
+<script>
+  import "../scripts/testimonials.js";
+</script>

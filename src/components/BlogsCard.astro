@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+const { blog, isLast = false } = Astro.props;
+---
+
+<article
+  class:list={[
+    "group flex min-w-0 flex-col overflow-hidden rounded-[14px] border border-[rgba(55,140,215,0.24)] bg-[linear-gradient(145deg,rgba(15,39,69,0.96),rgba(8,28,51,0.98))] shadow-[0_12px_32px_rgba(0,0,0,0.12)] transition-[transform,border-color,box-shadow] duration-300 ease-in-out hover:-translate-y-[7px] hover:border-[rgba(34,197,245,0.65)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.24)] motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+    {
+      "min-[651px]:max-[1000px]:col-span-2": isLast,
+    },
+  ]}
+>
+  <!-- Blog image -->
+  <a
+    href={blog.href}
+    aria-label={blog.title}
+    class:list={[
+      "block h-[210px] shrink-0 overflow-hidden bg-[#102a49] min-[651px]:h-[225px]",
+      {
+        "min-[651px]:max-[1000px]:h-[260px]": isLast,
+      },
+    ]}
+  >
+    <Image
+      src={blog.image}
+      alt={blog.alt}
+      loading="lazy"
+      class="block h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+    />
+  </a>
+
+  <!-- Blog content -->
+  <div class="flex flex-1 flex-col items-start p-[22px] min-[651px]:p-6">
+    <!-- Category -->
+    <span
+      class="mb-[17px] inline-block rounded-[30px] bg-[#25c2ef] px-4 py-[7px] text-xs font-extrabold tracking-[0.3px] text-[#04233b]"
+    >
+      {blog.category}
+    </span>
+
+    <!-- Title -->
+    <h3
+      class="mb-4 text-[19px] font-bold leading-[1.5] text-[#f5f8ff] min-[651px]:text-[21px]"
+    >
+      {blog.title}
+    </h3>
+
+    <!-- Description -->
+    <p
+      class="mb-6 text-sm leading-[1.8] text-[#b9cbe1] min-[651px]:text-[15px]"
+    >
+      {blog.description}
+    </p>
+
+    <!-- Read more -->
+    <a
+      href={blog.href}
+      class="group/link mt-auto inline-flex items-center gap-3 text-[15px] font-extrabold text-[#20c5f5] no-underline transition-colors duration-200 ease-in-out hover:text-[#8ce8ff] motion-reduce:transition-none"
+    >
+      Read More
+
+      <span
+        aria-hidden="true"
+        class="inline-block text-[22px] transition-transform duration-300 group-hover/link:translate-x-[5px] motion-reduce:transition-none motion-reduce:group-hover/link:translate-x-0"
+      >
+        →
+      </span>
+    </a>
+  </div>
+</article>

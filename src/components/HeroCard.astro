@@ -1,0 +1,131 @@
+
+---
+import logo from "../assets/Tools/Logo.png";
+
+const { slide, index } = Astro.props;
+
+const imageAnimationDelays = {
+  1: "-1s",
+  2: "-2s",
+  3: "-1.5s",
+  4: "-2.5s",
+  5: "-0.5s",
+};
+
+const imageDelay = imageAnimationDelays[index] ?? "0s";
+---
+
+<article
+  class:list={[
+    "slide hidden min-h-[540px] grid-cols-[1.15fr_0.85fr] items-center gap-[30px] px-[4%] py-[55px] [&.active]:grid [&.active]:animate-[hero-fade-in_0.65s_ease] max-[760px]:min-h-0 max-[760px]:grid-cols-1 max-[760px]:gap-6 max-[760px]:px-[8%] max-[760px]:pt-10 max-[760px]:pb-[35px]",
+    { active: index === 0 },
+  ]}
+>
+  <!-- Slide content -->
+  <div class="slide-content max-w-[760px]">
+    <img
+      class="slide-logo mb-6 block h-auto w-[180px] max-w-full object-contain max-[760px]:mb-5 max-[760px]:w-[190px]"
+      src={logo.src}
+      alt="Syslatech logo"
+    />
+
+    <h1
+      class="mb-6 font-[Manrope,sans-serif] text-[clamp(26px,2.2vw,40px)] leading-[1.2] font-bold text-[#050505] max-[760px]:text-[25px]"
+    >
+      {slide.title}
+    </h1>
+
+    <p
+      class="m-0 font-[Manrope,sans-serif] text-[clamp(14px,1.05vw,18px)] leading-[1.6] font-normal text-[#8497a3] max-[760px]:text-sm"
+    >
+      {slide.description}
+    </p>
+  </div>
+
+  <!-- Illustration and orbit rings -->
+  <div class="slide-visual flex min-w-0 items-center justify-center">
+    <div
+      class="orbit-wrapper relative isolate flex w-full max-w-[540px] items-center justify-center max-[760px]:max-w-[340px]"
+    >
+      <!-- Inner circular glow -->
+      <div
+        class="pointer-events-none absolute left-[85%] top-[75%] z-0 aspect-square w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#0799f5]/20 shadow-[0_0_18px_rgba(7,153,245,0.12),inset_0_0_18px_rgba(7,153,245,0.08)] animate-[hero-orbit-glow_6s_ease-in-out_infinite] max-[760px]:right-[35%] max-[760px]:top-[80%] max-[760px]:w-[65%]"
+      ></div>
+
+      <!-- Outer elliptical orbit -->
+      <div
+        class="pointer-events-none absolute left-[85%] top-[75%] z-0 h-[52%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-[#0799f5]/20 shadow-[0_0_24px_rgba(7,153,245,0.1)] animate-[hero-orbit-rotate_12s_linear_infinite] max-[760px]:right-[35%] max-[760px]:top-[80%] max-[760px]:h-[55%] max-[760px]:w-[85%]"
+      ></div>
+
+      <!-- Main illustration -->
+      <img
+        class="relative z-10 block h-auto max-h-[390px] w-full max-w-[540px] object-contain drop-shadow-[0_18px_22px_rgba(13,93,145,0.12)] animate-[hero-floating-image_4s_ease-in-out_infinite] max-[760px]:max-h-[240px]"
+        style={`animation-delay: ${imageDelay};`}
+        src={slide.image.src}
+        alt={slide.title}
+      />
+    </div>
+  </div>
+</article>
+
+<style>
+  @keyframes hero-fade-in {
+    from {
+      opacity: 0;
+      transform: translateX(15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes hero-floating-image {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-16px);
+    }
+  }
+
+  @keyframes hero-orbit-rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(-25deg);
+    }
+
+    to {
+      transform: translate(-50%, -50%) rotate(335deg);
+    }
+  }
+
+  @keyframes hero-orbit-glow {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(0.96);
+      opacity: 0.65;
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scale(1.04);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .slide-logo {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active,
+    .slide-visual img,
+    .orbit-wrapper > div {
+      animation: none;
+    }
+  }
+</style>

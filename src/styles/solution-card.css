@@ -1,0 +1,307 @@
+
+/* Individual Solution Card */
+
+.solution-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-width: 0;
+  min-height: 205px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  overflow: hidden;
+
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 11px;
+  background: rgb(255 255 255 / 3%);
+
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+
+  /* Smooth card movement and border transition */
+  transition:
+    border-color 450ms ease,
+    box-shadow 450ms ease,
+    color 450ms ease,
+    transform 450ms ease;
+}
+
+/* White layer that rises from the bottom */
+.solution-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: #fff;
+  transform: translateY(101%);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animated gradient border */
+.solution-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 0deg,
+    #ffffff 70deg,
+    #5eead4 140deg,
+    transparent 210deg,
+    transparent 360deg
+  );
+
+  /* Show only the border ring */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  opacity: 0;
+}
+
+/* Card content */
+.solution-hover-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Icon container */
+.solutions-icons-images-wrapper {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+/* Icon image */
+.solutions-icons-images-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  /* Make monochrome dark icons white by default */
+  filter: brightness(0) invert(1);
+
+  transition: filter 450ms ease;
+}
+
+/* Main Title */
+.solution-title {
+  max-width: 230px;
+  margin: 0;
+  color: inherit;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.35;
+
+  transition:
+    font-size 450ms ease,
+    color 450ms ease;
+}
+
+/* Hide subtitle until hover */
+.solution-subtitle {
+  max-width: 230px;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    max-height 450ms ease,
+    opacity 350ms ease,
+    transform 450ms ease;
+}
+
+/* Hide description until hover */
+.solution-description {
+  max-width: 230px;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.6;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    max-height 450ms ease,
+    opacity 350ms ease,
+    transform 450ms ease;
+}
+
+/* Arrow */
+.solution-arrow {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+
+  color: #111;
+  font-size: 16px;
+
+  opacity: 0;
+  transform: translate(-4px, 4px);
+
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+}
+
+/* Hover and keyboard focus */
+.solution-card:hover,
+.solution-card:focus-visible {
+  z-index: 1;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
+  transform: translateY(-2px);
+  color: #111;
+}
+
+/* Reveal white layer */
+.solution-card:hover::before,
+.solution-card:focus-visible::before {
+  transform: translateY(0);
+}
+
+/* Animate the border on hover or keyboard focus */
+.solution-card:hover::after,
+.solution-card:focus-visible::after {
+  opacity: 1;
+  animation: solution-border-spin 2s linear infinite;
+}
+
+/* Change icon from white to dark */
+.solution-card:hover .solutions-icons-images-wrapper img,
+.solution-card:focus-visible .solutions-icons-images-wrapper img {
+  filter: none;
+}
+
+/* Make the title smaller to fit the expanded content */
+.solution-card:hover .solution-title,
+.solution-card:focus-visible .solution-title {
+  font-size: 15px;
+}
+
+/* Reveal subtitle */
+.solution-card:hover .solution-subtitle,
+.solution-card:focus-visible .solution-subtitle {
+  max-height: 60px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal description */
+.solution-card:hover .solution-description,
+.solution-card:focus-visible .solution-description {
+  max-height: 80px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal arrow */
+.solution-card:hover .solution-arrow,
+.solution-card:focus-visible .solution-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Visible keyboard focus */
+.solution-card:focus-visible {
+  outline: 3px solid #102e63;
+  outline-offset: 4px;
+}
+
+/* Allow the gradient angle to animate */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Border rotation animation */
+@keyframes solution-border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+  .solution-card {
+    min-height: 205px;
+    padding: 18px 12px;
+  }
+
+  .solutions-icons-images-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .solution-title {
+    font-size: 17px;
+  }
+
+  .solution-card:hover .solution-title,
+  .solution-card:focus-visible .solution-title {
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .solution-card {
+    min-height: 190px;
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .solution-card,
+  .solution-card::before,
+  .solution-card::after,
+  .solution-card *,
+  .solution-card:hover,
+  .solution-card:focus-visible {
+    transition: none;
+    animation: none;
+  }
+
+  .solution-card:hover::before,
+  .solution-card:focus-visible::before {
+    transform: none;
+  }
+
+  .solution-card:hover::after,
+  .solution-card:focus-visible::after {
+    opacity: 0;
+  }
+}

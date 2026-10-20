@@ -1,0 +1,23 @@
+---
+import "../styles/solutions.css";
+import { solutions } from "../data/solutions.js";
+import SolutionCard from "./SolutionCard.astro";
+---
+
+<section class="solutions-section" id="solutions">
+  <div class="u-container">
+    <h2 class="solutions-heading">SOLUTIONS</h2>
+
+    <div class="solutions-grid">
+      {solutions.map((solution) => (
+        <SolutionCard
+          title={solution.title}
+          subtitle={solution.subtitle}
+          description={solution.description}
+          icon={solution.icon}
+          href={solution.href}
+        />
+      ))}
+    </div>
+  </div>
+</section>
