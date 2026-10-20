@@ -9,10 +9,6 @@ import { menus } from "../data/HeaderMenus.js";
   href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
   rel="stylesheet"
 />
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-/>
 
 <header
   class="site-header relative z-[1000] w-full font-[Manrope,sans-serif] text-[#081727] bg-gradient-to-r from-[#d4edff] to-[#f5fbff] border-b border-[#0799f5]/20 transition-[background-color,box-shadow,border-color] duration-250 ease-in-out [&_*]:box-border
@@ -77,10 +73,12 @@ import { menus } from "../data/HeaderMenus.js";
             data-dropdown-trigger
           >
             {menu.label}
-            <i
-              class="bi bi-chevron-down nav-chevron shrink-0 text-[10px] transition-transform duration-200 [.is-open_&]:rotate-180"
+
+            <iconify-icon
+              icon="mdi:chevron-down"
+              class="nav-chevron shrink-0 text-[10px] transition-transform duration-200 [.is-open_&]:rotate-180"
               aria-hidden="true"
-            ></i>
+            ></iconify-icon>
           </button>
 
           <!-- Mega menu -->
@@ -119,10 +117,12 @@ import { menus } from "../data/HeaderMenus.js";
                   href={menu.href}
                 >
                   {menu.action}
-                  <i
-                    class="bi bi-arrow-up-right transition-transform duration-200 group-hover/navitem:translate-x-[3px] group-hover/navitem:-translate-y-[3px]"
+
+                  <iconify-icon
+                    icon="mdi:arrow-top-right"
+                    class="transition-transform duration-200 group-hover/navitem:translate-x-[3px] group-hover/navitem:-translate-y-[3px]"
                     aria-hidden="true"
-                  ></i>
+                  ></iconify-icon>
                 </a>
               </div>
 
@@ -148,7 +148,11 @@ import { menus } from "../data/HeaderMenus.js";
                           loading="lazy"
                         />
                       ) : (
-                        <i class={`bi ${item.icon}`}></i>
+                        <iconify-icon
+                          icon={item.icon}
+                          class="text-[18px]"
+                          aria-hidden="true"
+                        ></iconify-icon>
                       )}
                     </span>
 
@@ -162,10 +166,11 @@ import { menus } from "../data/HeaderMenus.js";
                       </small>
                     </span>
 
-                    <i
-                      class="bi bi-arrow-up-right card-arrow absolute top-3 right-3 text-xs text-[#62798b] transition-[color,transform] duration-200 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 group-hover/card:text-[#006bb5]"
+                    <iconify-icon
+                      icon="mdi:arrow-top-right"
+                      class="card-arrow absolute top-3 right-3 text-xs text-[#62798b] transition-[color,transform] duration-200 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 group-hover/card:text-[#006bb5]"
                       aria-hidden="true"
-                    ></i>
+                    ></iconify-icon>
                   </a>
                 ))}
               </div>
@@ -184,16 +189,21 @@ import { menus } from "../data/HeaderMenus.js";
 
       <!-- Contact button -->
       <a
-        class="contact-button ml-[7px] inline-flex min-h-[45px] flex-none items-center justify-center gap-[10px] rounded-[7px] border border-[#0799f5] bg-[#0799f5] px-[18px] text-xs font-extrabold text-white no-underline whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-[#006bb5] hover:bg-[#006bb5] hover:shadow-[0_6px_20px_rgba(0,107,181,0.22)] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] [&_i]:text-sm max-[1180px]:ml-[3px] max-[1180px]:gap-[6px] max-[1180px]:px-[11px] max-[1180px]:text-[11px] max-[900px]:mt-2 max-[900px]:mr-0 max-[900px]:mb-0 max-[900px]:ml-0 max-[900px]:min-h-[46px] max-[900px]:w-full max-[900px]:text-xs"
+        class="contact-button ml-[7px] inline-flex min-h-[45px] flex-none items-center justify-center gap-[10px] rounded-[7px] border border-[#0799f5] bg-[#0799f5] px-[18px] text-xs font-extrabold text-white no-underline whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-[#006bb5] hover:bg-[#006bb5] hover:shadow-[0_6px_20px_rgba(0,107,181,0.22)] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] [&_iconify-icon]:text-sm max-[1180px]:ml-[3px] max-[1180px]:gap-[6px] max-[1180px]:px-[11px] max-[1180px]:text-[11px] max-[900px]:mt-2 max-[900px]:mr-0 max-[900px]:mb-0 max-[900px]:ml-0 max-[900px]:min-h-[46px] max-[900px]:w-full max-[900px]:text-xs"
         href="/contact/"
       >
         Contact Us
-        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+
+        <iconify-icon
+          icon="mdi:arrow-top-right"
+          aria-hidden="true"
+        ></iconify-icon>
       </a>
     </nav>
   </div>
 </header>
 
 <script>
+  import "iconify-icon";
   import "../scripts/header.js";
 </script>
