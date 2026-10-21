@@ -1,5 +1,7 @@
 
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   icon: string;
   title: string;
@@ -15,7 +17,11 @@ const { icon, title, description } = Astro.props;
   <div
     class="col-start-1 row-start-1 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-white/28 bg-white/[0.16] text-white transition-[color,background-color,transform,box-shadow] duration-[250ms] ease-in-out group-hover:scale-110 group-hover:border-white group-hover:bg-white group-hover:text-[#159e9a] group-hover:shadow-[0_5px_16px_rgba(0,0,0,0.14)] group-focus-within:border-white group-focus-within:bg-white group-focus-within:text-[#159e9a] max-md:row-span-2 max-md:h-[46px] max-md:w-[46px] max-[420px]:h-10 max-[420px]:w-10 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
   >
-    <i class={`${icon} text-[23px] leading-none max-[420px]:text-[19px]`} aria-hidden="true"></i>
+    <Icon
+      name={icon}
+      class="h-[23px] w-[23px] shrink-0 max-[420px]:h-[19px] max-[420px]:w-[19px]"
+      aria-hidden="true"
+    />
   </div>
 
   <h3
