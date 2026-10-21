@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
   subtitle: string;
   description: string;
-  icon: ImageMetadata;
+  icon: string;
   href: string;
 }
 
@@ -34,11 +34,10 @@ const { title, subtitle, description, icon, href } = Astro.props;
     <div
       class="grid size-12 shrink-0 place-items-center transition-transform duration-300 group-hover:scale-95 group-focus-visible:scale-95 motion-reduce:transition-none"
     >
-      <Image
-        src={icon}
-        alt=""
-        class="block h-full w-full object-contain brightness-0 invert transition-[filter] duration-500 group-hover:brightness-100 group-hover:invert-0 group-focus-visible:brightness-100 group-focus-visible:invert-0 motion-reduce:transition-none"
-        loading="lazy"
+      <Icon
+        name={icon}
+        aria-hidden="true"
+        class="block h-full w-full text-[#0B1B31] brightness-0 invert transition-[filter] duration-500 group-hover:brightness-100 group-hover:invert-0 group-focus-visible:brightness-100 group-focus-visible:invert-0 motion-reduce:transition-none"
       />
     </div>
 

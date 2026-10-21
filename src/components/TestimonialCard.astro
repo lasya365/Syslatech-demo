@@ -4,12 +4,20 @@ const { testimonial, index } = Astro.props;
 ---
 
 <article
-  class="testimonial-card"
+  class="testimonial-card group pointer-events-none absolute left-[150%] top-1/2 z-0 flex min-h-[210px] w-[320px] -translate-x-1/2 -translate-y-1/2 flex-col justify-center rounded-2xl border border-brand-border bg-surface-blue p-[22px] text-center opacity-0 shadow-[0_6px_18px_rgb(8_23_39_/_5%)] transition-[left,width,min-height,padding,opacity,box-shadow,background-color,border-color] duration-[450ms] ease-in-out [&.no-transition]:!transition-none data-[position=left]:pointer-events-auto data-[position=left]:left-[16.6667%] data-[position=left]:z-[1] data-[position=left]:opacity-80 data-[position=right]:pointer-events-auto data-[position=right]:left-[83.3333%] data-[position=right]:z-[1] data-[position=right]:opacity-80 data-[position=center]:pointer-events-auto data-[position=center]:left-1/2 data-[position=center]:z-[3] data-[position=center]:min-h-[265px] data-[position=center]:w-[400px] data-[position=center]:border-brand-border data-[position=center]:bg-surface data-[position=center]:p-[30px] data-[position=center]:opacity-100 data-[position=center]:shadow-[0_16px_40px_rgb(8_23_39_/_12%)] max-[1100px]:w-[280px] max-[1100px]:min-h-[200px] max-[1100px]:p-5 max-[1100px]:data-[position=center]:min-h-[250px] max-[1100px]:data-[position=center]:w-[360px] max-[1100px]:data-[position=center]:p-[26px] max-[700px]:data-[position=left]:pointer-events-none max-[700px]:data-[position=left]:opacity-0 max-[700px]:data-[position=right]:pointer-events-none max-[700px]:data-[position=right]:opacity-0 max-[700px]:data-[position=center]:min-h-[240px] max-[700px]:data-[position=center]:w-[calc(100%_-_44px)] max-[700px]:data-[position=center]:p-6 motion-reduce:transition-none"
   data-index={index}
   data-position="hidden"
   aria-current="false"
 >
-  <p class="testimonial-text">{testimonial.text}</p>
+  <p
+    class="testimonial-text m-0 text-base font-normal leading-[1.75] tracking-[0.05px] text-body group-data-[position=left]:text-xs group-data-[position=right]:text-xs group-data-[position=center]:text-base max-[700px]:group-data-[position=center]:text-sm max-[700px]:group-data-[position=center]:leading-[1.8]"
+  >
+    {testimonial.text}
+  </p>
 
-  <p class="testimonial-author">{testimonial.author}</p>
+  <p
+    class="testimonial-author mb-0 mt-6 text-base font-bold leading-[1.5] tracking-[0.1px] text-heading group-data-[position=left]:text-xs group-data-[position=right]:text-xs group-data-[position=center]:text-base max-[700px]:group-data-[position=center]:text-[15px]"
+  >
+    {testimonial.author}
+  </p>
 </article>
