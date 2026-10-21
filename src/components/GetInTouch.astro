@@ -1,0 +1,63 @@
+---
+---
+
+<div class="min-w-0 font-sans">
+  <h3 class="mb-5 text-lg font-bold uppercase leading-tight text-heading">
+    Contact Us
+  </h3>
+
+  <form
+    action="/contact/"
+    method="get"
+    class="flex flex-col gap-[9px]"
+  >
+    <!-- Full Name -->
+    <input
+      type="text"
+      name="name"
+      placeholder="Full Name"
+      aria-label="Full Name"
+      required
+      class="box-border h-[39px] w-full rounded-[6px] border border-brand-border bg-surface px-5 text-xs text-heading placeholder:text-muted outline-none transition-colors focus:border-brand-blue"
+    />
+
+    <!-- Country code and phone number -->
+    <div class="grid grid-cols-[68px_minmax(0,1fr)] gap-[9px]">
+      <input
+        type="text"
+        name="countryCode"
+        value="+91"
+        aria-label="Country code"
+        readonly
+        class="box-border h-[34px] w-full rounded-[6px] border border-brand-border bg-surface px-3 text-xs text-heading outline-none"
+      />
+
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Enter your phone number"
+        aria-label="Phone number"
+        required
+        class="box-border h-[34px] min-w-0 w-full rounded-[6px] border border-brand-border bg-surface px-2 text-xs text-heading placeholder:text-muted outline-none transition-colors focus:border-brand-blue"
+      />
+    </div>
+
+    <!-- Email -->
+    <input
+      type="email"
+      name="email"
+      placeholder="Your email here"
+      aria-label="Email address"
+      required
+      class="box-border h-[39px] w-full rounded-[6px] border border-brand-border bg-surface px-5 text-xs text-heading placeholder:text-muted outline-none transition-colors focus:border-brand-blue"
+    />
+
+    <!-- Submit button -->
+    <button
+      type="submit"
+      class="mt-[10px] h-[44px] w-full rounded-[7px] bg-brand-blue text-sm font-bold text-white transition-colors duration-300 hover:bg-brand-hover"
+    >
+      Submit
+    </button>
+  </form>
+</div>
