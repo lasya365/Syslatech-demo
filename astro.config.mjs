@@ -1,19 +1,20 @@
-// @ts-check
+ // @ts-check
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import vectorizeIcons from './integrations/vectorize-icons.mjs';
-
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    // Must run before icon(): converts PNG-in-SVG exports from src/assets/Icons
-    // into real vector icons in src/icons (generated, git-ignored).
-    vectorizeIcons({ srcDir: 'src/assets/Icons', outDir: 'src/icons' }),
+    // Converts PNG-in-SVG exports into real vector icons.
+    vectorizeIcons({
+      srcDir: 'src/assets/Icons',
+      outDir: 'src/icons',
+    }),
     icon({ iconDir: 'src/icons' }),
   ],
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

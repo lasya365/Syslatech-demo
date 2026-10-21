@@ -1,17 +1,18 @@
----
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/header.astro";
-import Hero from "../components/hero.astro";
-import WhoWeAre from "../components/WhoWeAre.astro";
-import Blogs from "../components/Blogs.astro";
 
+---
+import "../styles/Global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import WhoWeAre from "../components/WhoWeAre.astro";
+import TrustedClients from "../components/TrustedClients.astro";
+import Blogs from "../components/Blogs.astro";
 import Solutions from "../components/Solutions.astro";
+import ToolsTechnology from "../components/ToolsTechnology.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
 import Testimonials from "../components/Testimonials.astro";
 import FAQSection from "../components/FAQSection.astro";
 import CTASection from "../components/CTASection.astro";
-
-import "../styles/global.css";
 ---
 
 <Layout
@@ -22,7 +23,9 @@ import "../styles/global.css";
   <main>
     <Hero />
     <WhoWeAre />
+    <TrustedClients />
     <Solutions />
+    <ToolsTechnology />
     <WhyChooseUs />
     <Testimonials />
     <Blogs />

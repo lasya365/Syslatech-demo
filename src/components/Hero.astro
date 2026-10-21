@@ -1,0 +1,58 @@
+---
+import { slides } from "../data/HeroData.js";
+import HeroCard from "./HeroCard.astro";
+---
+
+<section
+  class="hero-carousel relative overflow-hidden bg-[linear-gradient(110deg,#d4edff,#f5fbff)] px-[5.8%] pt-[65px] pb-12 max-[760px]:px-[5%] max-[760px]:pt-[25px] max-[760px]:pb-[55px]"
+  aria-label="Featured solutions"
+>
+  <!-- Previous slide button -->
+  <button
+    class="arrow previous absolute top-1/2 left-[1.8%] z-20 -translate-y-1/2 cursor-pointer border-0 bg-transparent p-3 text-[30px] text-[#0799f5] transition-colors hover:text-[#006bb5] max-[760px]:left-0 max-[760px]:p-[5px] max-[760px]:text-[23px]"
+    aria-label="Previous slide"
+    type="button"
+  >
+    &#10094;
+  </button>
+
+  <!-- Carousel slides -->
+  <div
+    class="carousel-panel relative min-h-[540px] overflow-hidden rounded-t-[64px] border border-white/95 max-[760px]:rounded-t-[32px]"
+  >
+    {slides.map((slide, index) => (
+      <HeroCard slide={slide} index={index} />
+    ))}
+  </div>
+
+  <!-- Next slide button -->
+  <button
+    class="arrow next absolute top-1/2 right-[1.8%] z-20 -translate-y-1/2 cursor-pointer border-0 bg-transparent p-3 text-[30px] text-[#0799f5] transition-colors hover:text-[#006bb5] max-[760px]:right-0 max-[760px]:p-[5px] max-[760px]:text-[23px]"
+    aria-label="Next slide"
+    type="button"
+  >
+    &#10095;
+  </button>
+
+  <!-- Slide indicator dots -->
+  <div
+    class="dots absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 gap-[10px] max-[760px]:bottom-4"
+    aria-label="Choose slide"
+  >
+    {slides.map((slide, index) => (
+      <button
+        class:list={[
+          "dot h-[9px] w-[9px] cursor-pointer rounded-full border-0 bg-[#9bb9ca] transition-[background-color,transform] duration-200 [&.active]:scale-[1.25] [&.active]:bg-[#0799f5]",
+          { active: index === 0 },
+        ]}
+        aria-label={`Go to slide ${index + 1}`}
+        aria-current={index === 0 ? "true" : undefined}
+        type="button"
+      ></button>
+    ))}
+  </div>
+</section>
+
+<script>
+  import "../scripts/hero.js";
+</script>
