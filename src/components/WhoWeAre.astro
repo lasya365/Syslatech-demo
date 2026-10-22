@@ -1,0 +1,112 @@
+
+---
+import aboutUsImage from "../assets/icons/about-us.webp";
+---
+
+<section class="overflow-hidden bg-white px-[5%] py-12 font-sans sm:py-16 lg:py-[90px]">
+  <div class="mx-auto grid w-full max-w-[1250px] grid-cols-1 items-center gap-8 min-[681px]:grid-cols-[1.05fr_0.95fr] min-[681px]:gap-[35px] min-[901px]:gap-[65px]">
+
+    <!-- Left content -->
+    <div class="min-w-0">
+      <span class="mb-[18px] inline-block text-sm font-bold uppercase tracking-[1.5px] text-[#0878d1]">
+        Who We Are
+      </span>
+
+      <h2 class="mb-6 text-[31px] font-extrabold leading-[1.25] text-[#17365f] min-[681px]:text-[clamp(30px,3.2vw,43px)]">
+        A Team of Elite Software Testing Professionals,
+        <span class="text-[#0878d1]">Dedicated to Excellence</span>
+      </h2>
+
+      <h3 class="mb-4 text-lg font-bold leading-[1.55] text-[#263c57] min-[901px]:text-[21px]">
+        At Syslatech, quality isn’t just a deliverable—it’s our culture.
+      </h3>
+
+      <p class="mb-3 text-sm leading-[1.9] text-[#657286] min-[681px]:text-[15px]">
+        We are a team of highly experienced software testing specialists.
+      </p>
+
+      <p class="mb-[27px] text-sm leading-[1.9] text-[#657286] min-[681px]:text-[15px]">
+        Our mission goes far beyond completing projects; we focus on
+        building long-term value, strengthening brand reputation, and
+        empowering businesses with flawless, future-ready software solutions.
+      </p>
+
+      <a
+        href="/about"
+        class="inline-flex items-center gap-[15px] rounded-[5px] border border-[#0878d1] bg-[#0878d1] px-[23px] py-[13px] text-sm font-bold text-white no-underline transition-[background-color,transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-[#075fa8] hover:shadow-md motion-reduce:transition-none"
+      >
+        Who We Are
+        <span aria-hidden="true" class="text-[19px]">→</span>
+      </a>
+    </div>
+
+    <!-- Right image -->
+    <div
+      class="who-image-reveal relative mx-auto w-full min-w-0 max-w-[480px] rounded-2xl border border-[#dbeafe] bg-white p-2 pb-5 shadow-[0_8px_30px_rgba(8,120,209,0.08)] min-[681px]:max-w-none min-[681px]:p-3 min-[681px]:pb-6"
+    >
+      <img
+        src={aboutUsImage.src}
+        alt="Syslatech software testing professionals"
+        loading="lazy"
+        class="relative z-10 block h-auto max-h-[450px] w-full rounded-xl border border-[#edf2f7] object-contain"
+      />
+
+      <!-- Light blue background accent -->
+      <span
+        aria-hidden="true"
+        class="absolute bottom-0 right-0 h-[65%] w-[65%] rounded-xl bg-[#edf6ff]"
+      ></span>
+
+      <!-- Floating quality badge -->
+      <div
+        class="absolute bottom-0 left-0 z-20 flex max-w-[calc(100%-8px)] items-center gap-3 rounded-lg border border-[#e5edf6] bg-white px-3 py-3 shadow-lg sm:gap-4 sm:px-5 sm:py-4"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          class="h-8 w-8 shrink-0 text-[#0878d1] sm:h-[34px] sm:w-[34px]"
+        >
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+
+        <p class="text-xs font-bold leading-relaxed text-[#263c57] sm:text-sm">
+          Quality from validation to final sign-off
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes who-image-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+      clip-path: inset(12% 0 0 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .who-image-reveal {
+        animation: who-image-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 55%;
+      }
+    }
+  }
+</style>

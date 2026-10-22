@@ -1,0 +1,69 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* =================================
+   GLOBAL WEBSITE THEME
+================================= */
+
+@theme {
+  /* Brand colors */
+  --color-brand-navy: #081727;
+  --color-brand-blue: #0799f5;
+  --color-brand-hover: #006bb5;
+
+  /* Backgrounds */
+  --color-page: #f5fbff;
+  --color-surface: #ffffff;
+  --color-surface-blue: #d4edff;
+  --color-surface-hover: #e5f4ff;
+
+  /* Text colors */
+  --color-heading: #081727;
+  --color-body: #475569;
+  --color-muted: #62798b;
+
+  /* Borders and accents */
+  --color-brand-border: rgb(7 153 245 / 20%);
+  --color-brand-tint: rgb(7 153 245 / 9%);
+
+  /* Global typography */
+  --font-sans: "Manrope", sans-serif;
+
+  /* Layout */
+  --container-site: 1250px;
+}
+
+/* =================================
+   GLOBAL DEFAULTS
+================================= */
+
+@layer base {
+  html {
+    @apply scroll-smooth font-sans;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-page font-sans text-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans text-heading;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+}
