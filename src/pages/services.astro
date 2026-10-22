@@ -1,0 +1,94 @@
+
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Web Testing",
+    description: "Test web applications for reliability and consistent browser experiences.",
+    href: "/solutions/Web-testing.html",
+  },
+  {
+    title: "Mobile Testing",
+    description: "Evaluate mobile applications for usability, stability, and performance.",
+    href: "/solutions/Mobile-testing.html",
+  },
+  {
+    title: "API Testing",
+    description: "Check API functionality, integrations, and data reliability.",
+    href: "/solutions/API-testing.html",
+  },
+  {
+    title: "Desktop Testing",
+    description: "Help ensure desktop applications function reliably.",
+    href: "/solutions/Desktop-testing.html",
+  },
+  {
+    title: "Salesforce Testing",
+    description: "Support the quality and reliability of Salesforce applications.",
+    href: "/solutions/Salesforce-testing.html",
+  },
+  {
+    title: "Database Testing",
+    description: "Validate data accuracy, integrity, and consistency.",
+    href: "/solutions/Database-testing.html",
+  },
+];
+---
+
+<Layout
+  title="Our Services | SyslaTech"
+  description="Explore SyslaTech software testing and quality engineering services."
+>
+  <main class="mx-auto w-full max-w-site px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+    <section aria-labelledby="services-heading">
+      <div class="mb-10 text-center">
+        <p class="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-brand-blue">
+          What We Do
+        </p>
+
+        <h1
+          id="services-heading"
+          class="text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl"
+        >
+          Our Services
+        </h1>
+
+        <p class="mx-auto mt-5 max-w-2xl leading-8 text-body">
+          Explore our software testing services designed to help improve
+          application quality, reliability, and user experience.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <article class="rounded-2xl border border-brand-border bg-surface p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md">
+            <h2 class="text-xl font-bold text-heading">
+              {service.title}
+            </h2>
+
+            <p class="mt-3 leading-7 text-body">
+              {service.description}
+            </p>
+
+            <a
+              href={service.href}
+              class="mt-5 inline-flex items-center font-bold text-brand-blue hover:text-brand-hover"
+            >
+              Learn more <span class="ml-2" aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center rounded-lg bg-brand-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-hover"
+        >
+          Contact Us <span class="ml-2" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

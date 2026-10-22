@@ -1,17 +1,10 @@
-import webIcon from "../assets/Icons/web-black.svg";
-import mobileIcon from "../assets/Icons/mobile-black.svg";
-import apiIcon from "../assets/Icons/api-black.svg";
-import desktopIcon from "../assets/Icons/desktop-black.svg";
-import salesforceIcon from "../assets/Icons/sales-force-black.svg";
-import databaseIcon from "../assets/Icons/database-black.svg";
-
 export const solutions = [
   {
     title: "Web Testing",
     subtitle: "Ensuring Flawless Performance Across Every Browser",
     description:
       "Reliable, secure, and scalable web testing for seamless user experiences.",
-    icon: webIcon,
+    icon: "web-black",
     href: "/solutions/Web-testing.html",
   },
   {
@@ -19,7 +12,7 @@ export const solutions = [
     subtitle: "Perfect Performance on Every Device",
     description:
       "Comprehensive mobile app testing for speed, stability, and usability.",
-    icon: mobileIcon,
+    icon: "mobile-black",
     href: "/solutions/Mobile-testing.html",
   },
   {
@@ -27,7 +20,7 @@ export const solutions = [
     subtitle: "Strengthening the Backbone of Your Applications",
     description:
       "Accurate API testing to ensure secure, fast, and reliable integrations.",
-    icon: apiIcon,
+    icon: "api-black",
     href: "/solutions/API-testing.html",
   },
   {
@@ -35,7 +28,7 @@ export const solutions = [
     subtitle: "Built for Stability. Tested for Excellence.",
     description:
       "Robust desktop application testing for smooth functionality and performance.",
-    icon: desktopIcon,
+    icon: "desktop-black",
     href: "/solutions/Desktop-testing.html",
   },
   {
@@ -43,7 +36,7 @@ export const solutions = [
     subtitle: "Maximize Salesforce Performance with Precision Testing",
     description:
       "End-to-end Salesforce testing to ensure flawless CRM operations.",
-    icon: salesforceIcon,
+    icon: "sales-force-black",
     href: "/solutions/Salesforce-testing.html",
   },
   {
@@ -51,7 +44,7 @@ export const solutions = [
     subtitle: "Data Integrity You Can Trust",
     description:
       "Thorough database testing to ensure accuracy, security, and consistency.",
-    icon: databaseIcon,
+    icon: "database-black",
     href: "/solutions/Database-testing.html",
   },
 ];

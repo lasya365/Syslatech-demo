@@ -1,221 +1,15 @@
-/* =====================================
-   1. Main section
-===================================== */
-
-.testimonials-section {
-  background-color: #000;
-  color: #fff;
-  padding: 64px 24px 60px;
-  overflow: hidden;
-  font-family: inherit;
-}
 
 /* =====================================
-   2. Heading
-===================================== */
-
-.testimonials-heading {
-  max-width: 820px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonials-label {
-  color: #858585;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  line-height: 1.5;
-  margin: 0 0 20px;
-  text-transform: uppercase;
-}
-
-.testimonials-heading h2 {
-  max-width: 780px;
-  margin: 0 auto;
-  color: #fff;
-
-  font-family: inherit;
-  font-size: clamp(22px, 2.2vw, 26px);
-  font-weight: 600;
-  line-height: 1.45;
-  letter-spacing: -0.5px;
-  text-wrap: balance;
-}
-
-/* =====================================
-   3. Carousel layout
+   1. Carousel layout
+   Keep only the layout-specific styling
+   that is not defined in Tailwind.
 ===================================== */
 
 .testimonials-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
   height: 320px;
-  margin: 48px auto 0;
+  margin-top: 48px;
 }
 
-.testimonial-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* =====================================
-   4. Base card
-===================================== */
-
-.testimonial-card {
-  position: absolute;
-  top: 50%;
-  left: 150%;
-
-  width: 400px;
-  min-height: 180px;
-  box-sizing: border-box;
-  padding: 28px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background-color: #0b0b0b;
-  border: 1px solid #242424;
-  border-radius: 15px;
-
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  transition:
-    left 450ms ease,
-    width 450ms ease,
-    min-height 450ms ease,
-    padding 450ms ease,
-    opacity 450ms ease;
-}
-
-/* =====================================
-   5. Left card
-===================================== */
-
-.testimonial-card[data-position="left"] {
-  left: 16.6667%;
-  opacity: 0.75;
-  z-index: 1;
-  pointer-events: auto;
-}
-
-
-/* =====================================
-   6. Highlighted center card
-===================================== */
-
-.testimonial-card[data-position="center"] {
-  left: 50%;
-  width: 400px;
-  min-height: 265px;
-  padding: 30px;
-
-  background-color: #101010;
-  border-color: #303030;
-
-  opacity: 1;
-  z-index: 3;
-  pointer-events: auto;
-}
-
-/* =====================================
-   7. Right card
-===================================== */
-
-.testimonial-card[data-position="right"] {
-  left: 83.3333%;
-  opacity: 0.75;
-  z-index: 1;
-  pointer-events: auto;
-}
-
-/* =====================================
-   8. Review text
-===================================== */
-
-.testimonial-text {
-  margin: 0;
-
-  color: #d2d2d2;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.85;
-  letter-spacing: 0.05px;
-}
-
-/* The side cards use slightly smaller text */
-.testimonial-card[data-position="left"] .testimonial-text,
-.testimonial-card[data-position="right"] .testimonial-text {
-  font-size: 10px;
-  line-height: 1.75;
-}
-
-/* =====================================
-   9. Author name
-===================================== */
-
-.testimonial-author {
-  margin: 28px 0 0;
-
-  color: #fff;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.1px;
-}
-
-.testimonial-card[data-position="left"] .testimonial-author,
-.testimonial-card[data-position="right"] .testimonial-author {
-  font-size: 11px;
-}
-
-/* =====================================
-   10. Navigation arrows
-   Place them OUTSIDE the cards
-===================================== */
-
-.testimonial-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-
-  width: 38px;
-  height: 38px;
-  padding: 0;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid #505050;
-  border-radius: 50%;
-  background-color: #000;
-  color: #fff;
-
-  font-family: inherit;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1;
-
-  cursor: pointer;
-  transform: translateY(-50%);
-
-  transition:
-    background-color 200ms ease,
-    border-color 200ms ease,
-    color 200ms ease;
-}
-
-/* Negative offsets place arrows outside the card area */
 .testimonial-prev {
   left: calc((1200px - 100vw) / 2 + 24px);
 }
@@ -224,72 +18,13 @@
   right: calc((1200px - 100vw) / 2 + 24px);
 }
 
-.testimonial-arrow:hover {
-  background-color: #fff;
-  border-color: #fff;
-  color: #000;
-}
-
-.testimonial-arrow:focus-visible,
-.testimonial-dot:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
-}
-
 /* =====================================
-   11. Pagination dots
-===================================== */
-
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.testimonial-dot {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-
-  border: none;
-  border-radius: 50%;
-  background-color: #505050;
-
-  cursor: pointer;
-
-  transition:
-    width 200ms ease,
-    background-color 200ms ease;
-}
-
-.testimonial-dot[aria-current="true"] {
-  width: 21px;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
-/* Avoid transitions during instant repositioning */
-.testimonial-card.no-transition {
-  transition: none !important;
-}
-
-/* =====================================
-   12. Tablet layout
+   2. Tablet layout
 ===================================== */
 
 @media (max-width: 1100px) {
   .testimonials-carousel {
     max-width: 900px;
-  }
-
-  .testimonial-card {
-    width: 340px;
-  }
-
-  .testimonial-card[data-position="center"] {
-    width: 360px;
   }
 
   .testimonial-prev {
@@ -302,45 +37,13 @@
 }
 
 /* =====================================
-   13. Mobile layout
+   3. Mobile layout
 ===================================== */
 
 @media (max-width: 700px) {
-  .testimonials-section {
-    padding: 48px 20px;
-  }
-
-  .testimonials-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-  }
-
-  .testimonials-heading h2 {
-    font-size: clamp(20px, 5vw, 24px);
-    line-height: 1.45;
-    letter-spacing: -0.3px;
-  }
-
   .testimonials-carousel {
     height: 290px;
     margin-top: 32px;
-  }
-
-  .testimonial-card[data-position="left"],
-  .testimonial-card[data-position="right"] {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .testimonial-card[data-position="center"] {
-    width: calc(100% - 44px);
-    min-height: 240px;
-    padding: 24px;
-  }
-
-  .testimonial-card[data-position="center"] .testimonial-text {
-    font-size: 12px;
-    line-height: 1.8;
   }
 
   .testimonial-prev {
@@ -355,17 +58,5 @@
     width: 34px;
     height: 34px;
     font-size: 20px;
-  }
-}
-
-/* =====================================
-   14. Reduced-motion accessibility
-===================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonial-card,
-  .testimonial-arrow,
-  .testimonial-dot {
-    transition: none;
   }
 }

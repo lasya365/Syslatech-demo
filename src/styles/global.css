@@ -1,4 +1,5 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 /* =================================
@@ -64,5 +65,15 @@
 
   img {
     @apply max-w-full;
+  }
+}
+
+@layer components {
+  #contact-status[data-status="error"] {
+    @apply text-red-700;
+  }
+
+  #contact-status[data-status="success"] {
+    @apply text-green-700;
   }
 }

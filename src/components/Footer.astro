@@ -1,28 +1,36 @@
-
 ---
 import Logo from "../assets/Logo.svg";
-import "../styles/footer.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
 import QuickLinks from "./QuickLinks.astro";
 import ContactUs from "./ContactUs.astro";
 import GetInTouch from "./GetInTouch.astro";
+
 ---
 
-<footer class="site-footer">
-  <div class="footer-container">
 
+<footer
+  class="border-t border-[#DCE5ED] bg-page px-[7%] pt-16 font-sans text-body antialiased max-md:px-6 max-md:pt-11"
+>
+  <!-- Footer content -->
+  <div
+  class="mx-auto grid max-w-[1250px] grid-cols-1 gap-9 pb-10 md:grid-cols-[1fr_1fr] md:gap-8 lg:grid-cols-[0.9fr_0.8fr_1fr_1.2fr] lg:gap-6 xl:grid-cols-[1.15fr_0.8fr_1.2fr_1.35fr] xl:gap-8 xl:pb-14"
+>
     <!-- Column 1: Company branding -->
-    <div class="footer-brand">
-      <a href="/" class="footer-logo" aria-label="Syslatech home">
+    <div class="min-w-0">
+      <a
+        href="/"
+        class="inline-flex items-center"
+        aria-label="Syslatech home"
+      >
         <img
           src={Logo.src}
           alt="Syslatech"
-          class="footer-logo-image"
+          class="block h-auto w-[170px] object-contain md:w-[190px]"
         />
       </a>
 
-      <p class="footer-description">
+      <p
+        class="mt-3 max-w-[300px] text-sm leading-[1.85] text-body md:mt-[18px] md:max-w-[270px]"
+      >
         Quality Engineering for a Smarter Digital Future
       </p>
     </div>
@@ -33,15 +41,18 @@ import GetInTouch from "./GetInTouch.astro";
     <!-- Column 3: Contact details -->
     <ContactUs />
 
-    <!-- Column 4: Small footer contact form -->
+    <!-- Column 4: Contact form -->
     <GetInTouch />
-
   </div>
 
+  
   <!-- Copyright -->
-  <div class="footer-bottom">
-    <p>
-      Copyright © 2026-27 Syslatech Private Ltd Reserved All Rights
-    </p>
-  </div>
+<div
+  class="mx-auto max-w-[1250px] border-t border-[#DCE5ED] py-5 text-center md:py-[22px]"
+>
+  <p class="m-0 text-xs leading-[1.8] text-body md:text-sm">
+    Copyright © 2026-27 Syslatech Private Ltd Reserved All Rights
+  </p>
+</div>
+
 </footer>

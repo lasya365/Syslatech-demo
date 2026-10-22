@@ -51,8 +51,7 @@ window.loadCountryCodes = async () => {
         const option = document.createElement("option");
 
         option.value = `+${code}`;
-        option.textContent =
-          `${country.flag || ""} +${code} ${country.name}`;
+        option.textContent = `${country.flag || ""} +${code} ${country.name}`;
 
         if (country.alpha2Code === defaultCountry) {
           option.selected = true;
@@ -124,7 +123,6 @@ window.validateContactField = (field) => {
     }
   }
 
-  
   if (errorId) {
     setContactError(field, errorId, message);
   }
@@ -138,7 +136,6 @@ window.validateContactField = (field) => {
 
   return message === "";
 };
-
 
 // Update the message character counter.
 window.updateMessageCount = (textarea) => {
@@ -167,7 +164,7 @@ window.clearContactMessages = (form) => {
   [
     ["fullName", "name-error"],
     ["phone", "phone-error"],
-    ["email", "email-error"]
+    ["email", "email-error"],
   ].forEach(([fieldName, errorId]) => {
     const field = form.elements.namedItem(fieldName);
     const error = getContactElement(errorId);
@@ -248,5 +245,44 @@ window.submitContactForm = (event, form) => {
   return false;
 };
 
-// Load the country dropdown when the script runs.
+// Register event listeners instead of using inline HTML handlers.
+const contactForm = getContactElement("contact-form");
+
+if (contactForm instanceof HTMLFormElement) {
+  // Handle form submission.
+  contactForm.addEventListener("submit", (event) => {
+    window.submitContactForm(event, contactForm);
+  });
+
+  // Validate the name, phone number, and email as the user types.
+  ["fullName", "phone", "email"].forEach((fieldName) => {
+    const field = contactForm.elements.namedItem(fieldName);
+
+    if (field instanceof HTMLInputElement) {
+      field.addEventListener("input", () => {
+        window.validateContactField(field);
+      });
+    }
+  });
+
+  // Clear previous messages when the country code changes.
+  const countrySelect = getContactElement("country-code");
+
+  if (countrySelect instanceof HTMLSelectElement) {
+    countrySelect.addEventListener("change", () => {
+      window.clearContactMessages(contactForm);
+    });
+  }
+
+  // Update the message character counter.
+  const messageTextarea = getContactElement("contact-message");
+
+  if (messageTextarea instanceof HTMLTextAreaElement) {
+    messageTextarea.addEventListener("input", () => {
+      window.updateMessageCount(messageTextarea);
+    });
+  }
+}
+
+// Load country codes only once.
 window.loadCountryCodes();
