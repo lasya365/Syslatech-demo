@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+const { title, subtitle, description } = Astro.props;
+---
+
+<Layout
+  title={`${title} | SyslaTech`}
+  description={description}
+>
+  <main class="mx-auto w-full max-w-site px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+    <section
+      class="rounded-2xl border border-brand-border bg-surface px-6 py-10 shadow-sm sm:px-10 sm:py-14 lg:px-16 lg:py-16"
+      aria-labelledby="solution-title"
+    >
+      <div class="mb-6 h-1.5 w-16 rounded-full bg-brand-blue"></div>
+
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-brand-blue">
+        Our Solutions
+      </p>
+
+      <h1
+        id="solution-title"
+        class="max-w-4xl text-3xl font-extrabold leading-tight text-heading sm:text-4xl lg:text-5xl"
+      >
+        {title}
+      </h1>
+
+      <h2 class="mt-5 max-w-3xl text-lg font-bold leading-relaxed text-brand-navy sm:text-xl lg:text-2xl">
+        {subtitle}
+      </h2>
+
+      <p class="mt-5 max-w-3xl text-base leading-8 text-body sm:text-lg">
+        {description}
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center rounded-lg bg-brand-blue px-7 py-3.5 text-sm font-bold text-white transition-colors duration-300 hover:bg-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+        >
+          Contact us
+          <span class="ml-2" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-lg border border-brand-border bg-surface px-7 py-3.5 text-sm font-bold text-heading transition-colors duration-300 hover:bg-surface-hover"
+        >
+          Back to Home
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
