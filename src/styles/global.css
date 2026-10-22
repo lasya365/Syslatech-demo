@@ -67,3 +67,13 @@
     @apply max-w-full;
   }
 }
+
+@layer components {
+  #contact-status[data-status="error"] {
+    @apply text-red-700;
+  }
+
+  #contact-status[data-status="success"] {
+    @apply text-green-700;
+  }
+}
