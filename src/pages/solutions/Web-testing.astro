@@ -1,11 +1,10 @@
 ---
-import SolutionPage from '../../components/SolutionsPage.astro';
+import SolutionPage from "../../components/SolutionsPage.astro";
+import { solutions } from "../../data/solutionPages.js";
 
 export const prerender = true;
+
+const page = solutions["web-testing"];
 ---
 
-<SolutionPage
-  title="Web Testing"
-  subtitle="Ensuring Flawless Performance Across Every Browser"
-  description="Reliable, secure, and scalable web testing for seamless user experiences."
-/>
+<SolutionPage {...page} />

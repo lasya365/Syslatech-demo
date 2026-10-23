@@ -1,11 +1,10 @@
 ---
-import SolutionPage from '../../components/SolutionsPage.astro';
+import SolutionPage from "../../components/SolutionsPage.astro";
+import { solutions } from "../../data/solutionPages.js";
 
 export const prerender = true;
+
+const page = solutions["salesforce-testing"];
 ---
 
-<SolutionPage
-  title="Salesforce Testing"
-  subtitle="Strengthening the Backbone of Your Applications"
-  description="Accurate API testing to ensure secure, fast, and reliable integrations."
-/>
+<SolutionPage {...page} />

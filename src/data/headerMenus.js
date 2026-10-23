@@ -4,37 +4,37 @@ const solutions = [
     title: "Web Testing",
     description: "Ensure web applications deliver reliable performance and quality.",
     icon: "mdi:web",
-    href: "/#solutions",
+    href: "/solutions/Web-testing.html",
   },
   {
     title: "Mobile Testing",
     description: "Test mobile applications across devices and platforms.",
     icon: "mdi:cellphone",
-    href: "/#solutions",
+    href: "/solutions/Mobile-testing.html",
   },
   {
     title: "API Testing",
     description: "Validate APIs for functionality, reliability, and performance.",
     icon: "mdi:code-braces",
-    href: "https://syslatech.com/solutions/API-testing.html",
+    href: "/solutions/API-testing.html",
   },
   {
     title: "Desktop Testing",
     description: "Improve the quality of desktop applications through testing.",
     icon: "mdi:monitor",
-    href: "/#solutions",
+    href: "/solutions/Desktop-testing.html",
   },
   {
     title: "Salesforce Testing",
     description: "Verify Salesforce workflows and business applications.",
     icon: "mdi:cloud-check",
-    href: "/#solutions",
+    href: "/solutions/Salesforce-testing.html",
   },
   {
     title: "Database Testing",
     description: "Check database accuracy, consistency, and reliability.",
     icon: "mdi:database-check",
-    href: "/#solutions",
+    href: "solutions/Database-testing.html",
   },
 ];
 
@@ -186,7 +186,7 @@ const menus = [
     description:
       "Explore software testing solutions built around your quality goals.",
     action: "Explore solutions",
-    href: "/#solutions",
+    href: "",
     items: solutions,
   },
   {
