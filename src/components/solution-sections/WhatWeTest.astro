@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { Icon } from "astro-icon/components";
+
+interface TestCard {
+  icon: ImageMetadata | `mdi:${string}`;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  cards: TestCard[];
+}
+
+const { title, cards } = Astro.props;
+---
+
+<section class="bg-page px-5 py-12 sm:px-8 lg:py-16">
+  <div
+    class="mx-auto max-w-5xl rounded-2xl border border-white/30 bg-gradient-to-br from-brand-blue to-brand-navy px-5 py-10 text-white shadow-sm sm:px-10 lg:px-14 lg:py-14"
+  >
+    <h2 class="mb-8 text-center text-2xl font-extrabold text-white sm:text-3xl">
+      {title}
+      <span aria-hidden="true" class="ml-2 text-4xl">?</span>
+    </h2>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
+      {cards.map((card) => (
+        <article
+          class:list={[
+            "flex min-h-48 flex-col items-center justify-center rounded-xl border border-white/50 bg-white/5 px-5 py-7 text-center transition-colors duration-300 hover:bg-white/10",
+            "lg:col-span-2",
+            cards.length === 5 && "lg:[&:nth-child(4)]:col-start-2",
+            cards.length === 5 && "lg:[&:nth-child(5)]:col-start-4",
+          ]}
+        >
+          <div class="mb-4 grid size-12 shrink-0 place-items-center">
+            {typeof card.icon === "string" ? (
+              <Icon
+                name={card.icon}
+                aria-hidden="true"
+                class="size-12 text-white"
+              />
+            ) : (
+              <Image
+                src={card.icon}
+                alt=""
+                class="size-12 brightness-0 invert"
+              />
+            )}
+          </div>
+
+          <h3 class="max-w-48 text-base font-bold leading-snug text-white">
+            {card.title}
+          </h3>
+
+          <p class="mt-3 text-xs leading-5 text-white/90">
+            {card.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
