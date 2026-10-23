@@ -1,0 +1,63 @@
+---
+import { withBase } from "../../utils/withBase.js";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { blogs } from "../../data/blogsData.js";
+
+const blog = blogs[0];
+---
+
+<Layout title={`${blog.title} | Syslatech`} description={blog.description}>
+  <main class="bg-white px-5 py-16 font-[Manrope,sans-serif] sm:px-8 lg:px-12">
+    <article class="mx-auto max-w-4xl">
+      <a href={withBase("/blogs")} class="mb-8 inline-flex text-sm font-semibold text-sky-700 hover:text-sky-900">
+        ← Back to All Blogs
+      </a>
+
+      <p class="mb-4 text-sm font-bold uppercase tracking-widest text-sky-700">
+        {blog.category}
+      </p>
+
+      <h1 class="text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl md:text-5xl">
+        {blog.title}
+      </h1>
+
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        {blog.description}
+      </p>
+
+      <Image
+        src={blog.image}
+        alt={blog.alt}
+        class="mt-10 w-full rounded-2xl object-cover"
+      />
+
+      <div class="prose prose-slate mt-10 max-w-none">
+        <p>
+          Software quality plays an important role in building reliable digital
+          products. As applications become more complex, teams need effective
+          testing strategies that help identify issues early and improve
+          release confidence.
+        </p>
+        <h2>Why automation matters</h2>
+        <p>
+          Automated testing helps teams repeat important checks consistently,
+          reduce repetitive manual work, and receive faster feedback during
+          development. It works best alongside thoughtful test planning and
+          exploratory testing.
+        </p>
+        <h2>Building a stronger testing strategy</h2>
+        <p>
+          Start with stable, high-value test cases, maintain them as the
+          application changes, and use test results to guide continuous
+          improvement. The right approach balances speed, coverage, and
+          maintainability.
+        </p>
+      </div>
+
+      <a href={withBase("/blogs")} class="mt-10 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-sky-700">
+        Explore More Blogs
+      </a>
+    </article>
+  </main>
+</Layout>

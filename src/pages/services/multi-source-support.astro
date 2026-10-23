@@ -1,0 +1,12 @@
+
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import { serviceData } from "../../data/serviceData.js";
+
+const service = serviceData["multi-source-support"];
+---
+
+<ServiceDetail
+  title={service.title}
+  description={service.description}
+/>

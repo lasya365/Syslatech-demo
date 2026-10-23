@@ -1,63 +1,87 @@
-
 ---
+import { withBase } from "../utils/withBase.js";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { blogs } from "../data/blogsData.js";
 ---
 
 <Layout title="All Blogs | Syslatech">
-  <section class="blogs-section all-blogs-section">
-    <div class="blogs-container">
-      <div class="blogs-heading">
-        <span class="blogs-eyebrow">SYSLATECH INSIGHTS</span>
+  <section class="bg-white px-5 py-16 font-[Manrope,sans-serif] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <div class="mx-auto max-w-7xl">
 
-        <h2>
+      <!-- Blogs Heading -->
+      <div class="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+        <span class="mb-5 inline-block rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-xs font-bold tracking-[0.18em] text-sky-700 sm:text-sm">
+          SYSLATECH INSIGHTS
+        </span>
+
+        <h1 class="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
           Explore All
-          <span>Blogs</span>
-        </h2>
+          <span class="text-sky-600">Blogs</span>
+        </h1>
 
-        <p>
+        <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
           Discover insights on software testing, automation,
           quality engineering, and emerging technologies.
         </p>
       </div>
 
-      <div class="blog-grid">
+      <!-- Blog Cards -->
+      <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {blogs.map((blog) => (
-          <article class="blog-card">
+          <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-sky-200 hover:shadow-xl">
+
+            <!-- Blog Image -->
             <a
               href={blog.href}
-              class="blog-image"
+              class="block aspect-[16/9] overflow-hidden bg-slate-100"
               aria-label={blog.title}
             >
               <Image
                 src={blog.image}
                 alt={blog.alt}
                 loading="lazy"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </a>
 
-            <div class="blog-content">
-              <span class="blog-category">{blog.category}</span>
+            <!-- Blog Content -->
+            <div class="flex flex-1 flex-col p-6 sm:p-7">
+              <span class="mb-4 w-fit rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold tracking-wide text-sky-700">
+                {blog.category}
+              </span>
 
-              <h3 class="blog-card-title">{blog.title}</h3>
+              <h2 class="text-xl font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-sky-700 sm:text-2xl">
+                {blog.title}
+              </h2>
 
-              <p class="blog-card-para">{blog.description}</p>
+              <p class="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+                {blog.description}
+              </p>
 
-              <a href={blog.href} class="read-more-btn">
+              <a
+                href={blog.href}
+                class="mt-auto inline-flex w-fit items-center gap-2 pt-6 text-sm font-bold text-sky-700 transition-all duration-300 hover:gap-3 hover:text-sky-900"
+              >
                 Read More
-                <span aria-hidden="true">→</span>
+                <span aria-hidden="true" class="text-lg">→</span>
               </a>
             </div>
           </article>
         ))}
       </div>
 
-      <div class="blogs-footer">
-        <a href="/" class="view-all-blogs">
-          ← Back to Home
+      <!-- Back to Home -->
+      <div class="mt-14 flex justify-center sm:mt-16">
+        <a
+          href={withBase("/")}
+          class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-bold text-slate-700 transition duration-300 hover:border-sky-600 hover:bg-sky-600 hover:text-white"
+        >
+          <span aria-hidden="true">←</span>
+          Back to Home
         </a>
       </div>
+
     </div>
   </section>
 </Layout>

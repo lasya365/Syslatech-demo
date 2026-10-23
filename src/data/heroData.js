@@ -4,7 +4,6 @@ import heroImage2 from "../assets/Tools/Hero-image-2.png";
 import heroImage3 from "../assets/Tools/Hero-image-3.png";
 import heroImage4 from "../assets/Tools/Hero-image-4.png";
 import heroImage5 from "../assets/Tools/Hero-image-5.png";
-import heroImage6 from "../assets/Tools/Hero-image-6.png";
 
 export const slides = [
   {

@@ -1,6 +1,9 @@
 
 ---
 import "../styles/tools-technology.css";
+
+import { Image } from "astro:assets";
+
 import { toolsTechnology } from "../data/toolsTechnology.js";
 
 const { logo, kicker, heading, highlight, description, tools } =
@@ -8,6 +11,7 @@ const { logo, kicker, heading, highlight, description, tools } =
 ---
 
 <section
+  id="tools-tech"
   class="overflow-hidden bg-white px-[6%] py-[60px] text-[#081727] min-[761px]:px-[5.5%] min-[761px]:py-[90px]"
 >
   <div
@@ -31,9 +35,13 @@ const { logo, kicker, heading, highlight, description, tools } =
       <div
         class="relative z-[2] grid h-[86px] w-[86px] place-items-center rounded-full border border-[#e2edf7] bg-white shadow-[0_12px_35px_rgba(8,23,39,0.09)] min-[421px]:h-[100px] min-[421px]:w-[100px] min-[761px]:h-[100px] min-[761px]:w-[100px] min-[1051px]:h-[130px] min-[1051px]:w-[130px]"
       >
-        <img
-          src={logo.src}
+        <Image
+          src={logo}
           alt="Syslatech"
+          widths={[100, 160, 240]}
+          sizes="(max-width: 760px) 68px, 100px"
+          format="webp"
+          quality={75}
           class="h-[78%] w-[78%] object-contain"
         />
 
@@ -54,9 +62,13 @@ const { logo, kicker, heading, highlight, description, tools } =
               <div
                 class="tools-orbit-icon absolute grid place-items-center rounded-[13px] border border-[#e3edf6] bg-white p-2 shadow-[0_8px_24px_rgba(8,23,39,0.08)] min-[421px]:h-14 min-[421px]:w-14 min-[421px]:p-[10px] min-[761px]:h-14 min-[761px]:w-14 min-[761px]:p-[10px] min-[1051px]:h-[66px] min-[1051px]:w-[66px] min-[1051px]:rounded-[18px] min-[1051px]:p-3"
               >
-                <img
-                  src={tool.image.src}
+                <Image
+                  src={tool.image}
                   alt={tool.name}
+                  widths={[56, 66, 112, 132]}
+                  sizes="(min-width: 1051px) 66px, 56px"
+                  format="webp"
+                  quality={75}
                   class="block h-full w-full object-contain"
                 />
               </div>
@@ -96,13 +108,19 @@ const { logo, kicker, heading, highlight, description, tools } =
       <div class="flex flex-col">
         {tools.map((tool) => (
           <div
-            class="group flex items-center gap-[11px] rounded-[10px] border-b border-[#e8eef4] px-[5px] py-[15px] transition-[background-color,transform] duration-[250ms] ease-in-out hover:translate-x-1 hover:bg-[#f3f9fd] min-[421px]:gap-4 min-[421px]:px-3 min-[761px]:gap-4 min-[761px]:px-3 min-[761px]:py-[17px] motion-reduce:transition-none motion-reduce:hover:translate-x-0"
+            
+            class="group flex items-center gap-[11px] rounded-[10px] border-b border-[#e8eef4] px-[5px] py-[15px] transition-colors duration-[250ms] ease-in-out hover:bg-[#f3f9fd] min-[421px]:gap-4 min-[421px]:px-3 min-[761px]:gap-4 min-[761px]:px-3 min-[761px]:py-[17px] motion-reduce:transition-none"
+
           >
-            <img
-              class="h-[38px] w-[38px] shrink-0 rounded-[10px] border border-[#e8eef4] bg-white p-[6px] object-contain min-[421px]:h-11 min-[421px]:w-11"
-              src={tool.image.src}
+            <Image
+              src={tool.image}
               alt=""
+              widths={[48, 88, 132]}
+              sizes="(max-width: 420px) 38px, 44px"
+              format="webp"
+              quality={75}
               loading="lazy"
+              class="h-[38px] w-[38px] shrink-0 rounded-[10px] border border-[#e8eef4] bg-white p-[6px] object-contain min-[421px]:h-11 min-[421px]:w-11"
             />
     
 

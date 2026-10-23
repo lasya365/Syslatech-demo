@@ -1,5 +1,5 @@
-
 ---
+import { Image } from "astro:assets";
 import logo from "../assets/Tools/Logo.png";
 
 const { slide, index } = Astro.props;
@@ -17,23 +17,34 @@ const imageDelay = imageAnimationDelays[index] ?? "0s";
 
 <article
   class:list={[
-    "slide hidden min-h-[540px] grid-cols-[1.15fr_0.85fr] items-center gap-[30px] px-[4%] py-[55px] [&.active]:grid [&.active]:animate-[hero-fade-in_0.65s_ease] max-[760px]:min-h-0 max-[760px]:grid-cols-1 max-[760px]:gap-6 max-[760px]:px-[8%] max-[760px]:pt-10 max-[760px]:pb-[35px]",
+    "slide hidden min-h-[540px] grid-cols-[1.15fr_0.85fr] items-center gap-[30px] px-[4%] py-[55px] [&.active]:grid [&.active]:animate-none max-[760px]:min-h-0 max-[760px]:grid-cols-1 max-[760px]:gap-6 max-[760px]:px-[8%] max-[760px]:pt-10 max-[760px]:pb-[35px]",
     { active: index === 0 },
   ]}
 >
   <!-- Slide content -->
   <div class="slide-content max-w-[760px]">
-    <img
+    <Image
+      src={logo}
+      alt="Syslatech"
+      width={440}
+      format="webp"
+      quality={75}
       class="slide-logo mb-6 block h-auto w-[180px] max-w-full object-contain max-[760px]:mb-5 max-[760px]:w-[190px]"
-      src={logo.src}
-      alt="Syslatech logo"
     />
 
-    <h1
-      class="mb-6 font-[Manrope,sans-serif] text-[clamp(26px,2.2vw,40px)] leading-[1.2] font-bold text-[#050505] max-[760px]:text-[25px]"
-    >
+    {index === 0 ? (
+      <h1
+        class="mb-6 font-[Manrope,sans-serif] text-[clamp(26px,2.2vw,40px)] leading-[1.2] font-bold text-[#050505] max-[760px]:text-[25px]"
+      >
       {slide.title}
-    </h1>
+      </h1>
+    ) : (
+      <h2
+        class="mb-6 font-[Manrope,sans-serif] text-[clamp(26px,2.2vw,40px)] leading-[1.2] font-bold text-[#050505] max-[760px]:text-[25px]"
+      >
+      {slide.title}
+      </h2>
+    )}
 
     <p
       class="m-0 font-[Manrope,sans-serif] text-[clamp(14px,1.05vw,18px)] leading-[1.6] font-normal text-[#8497a3] max-[760px]:text-sm"
@@ -58,11 +69,16 @@ const imageDelay = imageAnimationDelays[index] ?? "0s";
       ></div>
 
       <!-- Main illustration -->
-      <img
+      <Image
         class="relative z-10 block h-auto max-h-[390px] w-full max-w-[540px] object-contain drop-shadow-[0_18px_22px_rgba(13,93,145,0.12)] animate-[hero-floating-image_4s_ease-in-out_infinite] max-[760px]:max-h-[240px]"
         style={`animation-delay: ${imageDelay};`}
-        src={slide.image.src}
+        src={slide.image}
         alt={slide.title}
+        width={540}
+        format="webp"
+        quality={80}
+        loading={index === 0 ? "eager" : "lazy"}
+        fetchpriority={index === 0 ? "high" : "auto"}
       />
     </div>
   </div>

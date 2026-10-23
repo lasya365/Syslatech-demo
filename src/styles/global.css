@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "@fontsource-variable/manrope";
 @import "tailwindcss";
 
 /* =================================
@@ -28,8 +28,7 @@
   --color-brand-tint: rgb(7 153 245 / 9%);
 
   /* Global typography */
-  --font-sans: "Manrope", sans-serif;
-
+  --font-sans: "Manrope Variable", sans-serif;
   /* Layout */
   --container-site: 1250px;
 }

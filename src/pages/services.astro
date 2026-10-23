@@ -1,37 +1,38 @@
 
 ---
+import { withBase } from "../utils/withBase.js";
 import Layout from "../layouts/Layout.astro";
 
 const services = [
   {
     title: "Web Testing",
     description: "Test web applications for reliability and consistent browser experiences.",
-    href: "/solutions/Web-testing.html",
+    href: withBase("/solutions/Web-testing.html"),
   },
   {
     title: "Mobile Testing",
     description: "Evaluate mobile applications for usability, stability, and performance.",
-    href: "/solutions/Mobile-testing.html",
+    href: withBase("/solutions/Mobile-testing.html"),
   },
   {
     title: "API Testing",
     description: "Check API functionality, integrations, and data reliability.",
-    href: "/solutions/API-testing.html",
+    href: withBase("/solutions/API-testing.html"),
   },
   {
     title: "Desktop Testing",
     description: "Help ensure desktop applications function reliably.",
-    href: "/solutions/Desktop-testing.html",
+    href: withBase("/solutions/Desktop-testing.html"),
   },
   {
     title: "Salesforce Testing",
     description: "Support the quality and reliability of Salesforce applications.",
-    href: "/solutions/Salesforce-testing.html",
+    href: withBase("/solutions/Salesforce-testing.html"),
   },
   {
     title: "Database Testing",
     description: "Validate data accuracy, integrity, and consistency.",
-    href: "/solutions/Database-testing.html",
+    href: withBase("/solutions/Database-testing.html"),
   },
 ];
 ---
@@ -83,7 +84,7 @@ const services = [
 
       <div class="mt-12 text-center">
         <a
-          href="/contact"
+          href={withBase("/contact")}
           class="inline-flex items-center rounded-lg bg-brand-blue px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-brand-hover"
         >
           Contact Us <span class="ml-2" aria-hidden="true">→</span>
