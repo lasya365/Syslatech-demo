@@ -4,8 +4,15 @@ import vectorizeIcons from './integrations/vectorize-icons.mjs';
 import tailwindcss from '@tailwindcss/vite';
 import node from '@astrojs/node';
 
+const githubPages = process.env.GITHUB_PAGES === 'true';
+
 export default defineConfig({
-  output: 'server',
+  output: githubPages ? 'static' : 'server',
+
+  ...(githubPages && {
+    site: 'https://lasya365.github.io',
+    base: '/Syslatech-demo',
+  }),
 
   adapter: node({
     mode: 'standalone',

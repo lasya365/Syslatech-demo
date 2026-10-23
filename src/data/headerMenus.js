@@ -1,34 +1,36 @@
+import { withBase } from "../utils/withBase.js";
+
 
 const solutions = [
   {
     title: "Web Testing",
     description: "Ensure web applications deliver reliable performance and quality.",
     icon: "mdi:web",
-    href: "/solutions/Web-testing.html",
+    href: withBase("/solutions/Web-testing.html"),
   },
   {
     title: "Mobile Testing",
     description: "Test mobile applications across devices and platforms.",
     icon: "mdi:cellphone",
-    href: "/solutions/Mobile-testing.html",
+    href: withBase("/solutions/Mobile-testing.html"),
   },
   {
     title: "API Testing",
     description: "Validate APIs for functionality, reliability, and performance.",
     icon: "mdi:code-braces",
-    href: "/solutions/API-testing.html",
+    href: withBase("/solutions/API-testing.html"),
   },
   {
     title: "Desktop Testing",
     description: "Improve the quality of desktop applications through testing.",
     icon: "mdi:monitor",
-    href: "/solutions/Desktop-testing.html",
+    href: withBase("/solutions/Desktop-testing.html"),
   },
   {
     title: "Salesforce Testing",
     description: "Verify Salesforce workflows and business applications.",
     icon: "mdi:cloud-check",
-    href: "/solutions/Salesforce-testing.html",
+    href: withBase("/solutions/Salesforce-testing.html"),
   },
   {
     title: "Database Testing",
@@ -43,55 +45,55 @@ const services = [
     title: "Intelligent Testcare",
     description: "Smart test intelligence for reliable software quality.",
     icon: "mdi:lightbulb-outline",
-    href: "/services/intelligent-testcare",
+    href: withBase("/services/intelligent-testcare"),
   },
   {
     title: "Natural Language Test Authoring",
     description: "Write test cases as easily as plain English commands.",
     icon: "mdi:message-text-outline",
-    href: "/services/natural-language-test-authoring",
+    href: withBase("/services/natural-language-test-authoring"),
   },
   {
     title: "Quality Test Scripts",
     description: "Robust, accurate scripts built for real-world scenarios.",
     icon: "mdi:file-code-outline",
-    href: "/services/quality-test-scripts",
+    href: withBase("/services/quality-test-scripts"),
   },
   {
     title: "AI Powered Framework Development",
     description: "AI-driven test frameworks that build themselves.",
     icon: "mdi:graph-outline",
-    href: "/services/ai-powered-framework-development",
+    href: withBase("/services/ai-powered-framework-development"),
   },
   {
     title: "Adaptive Test Maintenance",
     description: "Self-healing tests that evolve with your application.",
     icon: "mdi:autorenew",
-    href: "/services/adaptive-test-maintenance",
+    href: withBase("/services/adaptive-test-maintenance"),
   },
   {
     title: "Supports All Platforms",
     description: "Unified automation across web, mobile, desktop, and APIs.",
     icon: "mdi:view-grid-outline",
-    href: "/services/supports-all-platforms",
+    href: withBase("/services/supports-all-platforms"),
   },
   {
     title: "Automate Without Requirement",
     description: "Create automation even before requirements are defined.",
     icon: "mdi:auto-fix",
-    href: "/services/automate-without-requirements",
+    href: withBase("/services/automate-without-requirements"),
   },
   {
     title: "AI Powered Test Optimisation",
     description: "AI that improves coverage, speed, and stability.",
     icon: "mdi:chart-line",
-    href: "/services/ai-powered-test-optimisation",
+    href: withBase("/services/ai-powered-test-optimisation"),
   },
   {
     title: "Multi-Source Support",
     description: "Seamless testing from multiple data and system sources.",
     icon: "mdi:source-branch",
-    href: "/services/multi-source-support",
+    href: withBase("/services/multi-source-support"),
   },
 ];
 
@@ -132,7 +134,7 @@ const tools = [
     description:
       "Low-code automation powered by AI. Faster test creation with minimal scripting.",
     icon: "mdi:robot-outline",
-    logo: "/images/tools/Testigma.png",
+    logo: withBase("/images/tools/Testigma.png"),
     href: "https://testsigma.com/",
   },
   {
@@ -140,7 +142,7 @@ const tools = [
     description:
       "Scalable open-source web automation framework for web automation.",
     icon: "mdi:application-brackets-outline",
-    logo: "/images/tools/Selenium.png",
+    logo: withBase("/images/tools/Selenium.png"),
     href: "https://www.selenium.dev/",
   },
   {
@@ -148,7 +150,7 @@ const tools = [
     description:
       "Fast and reliable end-to-end testing for modern applications.",
     icon: "mdi:play-circle-outline",
-    logo: "/images/tools/Playwrite.png",
+    logo: withBase("/images/tools/Playwrite.png"),
     href: "https://playwright.dev/",
   },
   {
@@ -156,7 +158,7 @@ const tools = [
     description:
       "Unified testing for web, mobile, API and desktop applications.",
     icon: "mdi:monitor-dashboard",
-    logo: "/images/tools/Katalon%20Studio.png",
+    logo: withBase("/images/tools/Katalon%20Studio.png"),
     href: "https://katalon.com/",
   },
   {
@@ -164,7 +166,7 @@ const tools = [
     description:
       "Enterprise-grade automation testing for complex business systems.",
     icon: "mdi:widgets-outline",
-    logo: "/images/tools/Tricentis%20Tosca.png",
+    logo: withBase("/images/tools/Tricentis%20Tosca.png"),
     href: "https://www.tricentis.com/",
   },
   {
@@ -172,7 +174,7 @@ const tools = [
     description:
       "Developer-friendly end-to-end testing for modern front-end applications.",
     icon: "mdi:check-box-outline",
-    logo: "/images/tools/Cypress.png",
+    logo: withBase("/images/tools/Cypress.png"),
     href: "https://www.cypress.io/",
   },
 ];
@@ -208,7 +210,7 @@ const menus = [
     description:
       "Learn how expertise and tailored solutions can support your team.",
     action: "Why Syslatech",
-    href: "/#why-partner-with-us",
+    href: withBase("/#why-partner-with-us"),
     items: partners,
   },
   {
@@ -219,7 +221,7 @@ const menus = [
     description:
       "Explore technologies used in modern software testing.",
     action: "Explore technologies",
-    href: "/#tools-tech",
+    href: withBase("/#tools-tech"),
     items: tools,
   },
 ];

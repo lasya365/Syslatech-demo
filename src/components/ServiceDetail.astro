@@ -1,5 +1,6 @@
 
 ---
+import { withBase } from "../utils/withBase.js";
 import Layout from "../layouts/Layout.astro";
 import { serviceImages, sharedHero } from "../data/serviceData.js";
 
@@ -38,7 +39,7 @@ const { title, description } = Astro.props;
           </p>
 
           <a
-            href="/contact"
+            href={withBase("/contact")}
             class="mt-5 inline-flex items-center gap-3 rounded-lg bg-[#0799f5] px-5 py-3 text-sm font-bold text-white no-underline transition duration-300 hover:bg-[#006bb5] hover:shadow-lg md:text-base"
           >
             Contact Us

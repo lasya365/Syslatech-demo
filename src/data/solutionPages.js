@@ -16,15 +16,16 @@ import salesforceTestingSolution from "../assets/solutions/salesforce-testing-so
 import databaseTestingHero from "../assets/solutions/database-testing-hero.png";
 import databaseTestingChallenge from "../assets/solutions/database-testing-challenge.jpg";
 import databaseTestingSolution from "../assets/solutions/database-testing-solution.jpg";
-import webIcon from "../assets/icons/web-black.svg";
-import mobileIcon from "../assets/icons/mobile-black.svg";
-import apiIcon from "../assets/icons/api-black.svg";
-import desktopIcon from "../assets/icons/desktop-black.svg";
-import performanceIcon from "../assets/icons/performance.svg";
-import businessIcon1 from "../assets/icons/bussiness-icons1.svg?url";
-import businessIcon2 from "../assets/icons/bussiness-icons2.svg?url";
-import businessIcon3 from "../assets/icons/bussiness-icons3.svg?url";
-import businessIcon4 from "../assets/icons/bussiness-icons4.svg?url";
+import webIcon from "../assets/Icons/web-black.svg";
+import mobileIcon from "../assets/Icons/mobile-black.svg";
+import apiIcon from "../assets/Icons/api-black.svg";
+import desktopIcon from "../assets/Icons/desktop-black.svg";
+import performanceIcon from "../assets/Icons/performance.svg";
+import businessIcon1 from "../assets/Icons/bussiness-icons1.svg?url";
+import businessIcon2 from "../assets/Icons/bussiness-icons2.svg?url";
+import businessIcon3 from "../assets/Icons/bussiness-icons3.svg?url";
+import businessIcon4 from "../assets/Icons/bussiness-icons4.svg?url";
+import { withBase } from "../utils/withBase.js";
 
 
 export const solutions = {
@@ -38,7 +39,7 @@ export const solutions = {
 
     cta: {
       label: "Request a Web Testing Assessment",
-      href: "/contact",
+      href: withBase("/contact"),
     },
 
     challenge: {
@@ -120,7 +121,7 @@ export const solutions = {
 
   cta: {
     label: "Schedule a Mobile App Consultation",
-    href: "/contact",
+    href: withBase("/contact"),
   },
 
   challenge: {
@@ -212,7 +213,7 @@ export const solutions = {
 
   cta: {
     label: "Book an API Testing Reviewn",
-    href: "/contact",
+    href: withBase("/contact"),
   },
 
   challenge: {
@@ -304,7 +305,7 @@ export const solutions = {
 
   cta: {
     label: "Schedule a Desktop Testing Demo",
-    href: "/contact",
+    href: withBase("/contact"),
   },
 
   challenge: {
@@ -386,7 +387,7 @@ export const solutions = {
 
   cta: {
     label: "Request a Slesforce QA Consultation",
-    href: "/contact",
+    href: withBase("/contact"),
   },
 
   challenge: {
@@ -478,7 +479,7 @@ export const solutions = {
 
   cta: {
     label: "Request a Database Testing Consultation",
-    href: "/contact",
+    href: withBase("/contact"),
   },
 
   challenge: {

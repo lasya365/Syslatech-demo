@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/withBase.js";
 import BlogsCard from "./BlogsCard.astro";
 import { blogs } from "../data/blogsData.js";
 ---
@@ -46,7 +47,7 @@ import { blogs } from "../data/blogsData.js";
     <!-- View all blogs -->
     <div class="mt-[30px] flex justify-center min-[651px]:mt-[38px]">
       <a
-        href="/blogs"
+        href={withBase("/blogs")}
         class="group/link inline-flex min-h-[50px] items-center justify-center gap-3 rounded-full border-[1.5px] border-[#20c5f5] px-7 text-[15px] font-extrabold text-[#28c6f4] no-underline transition-[background-color,color,box-shadow] duration-300 ease-in-out hover:bg-[#20c5f5] hover:text-[#061426] hover:shadow-[0_0_24px_rgba(32,197,245,0.22)] motion-reduce:transition-none"
       >
         View All Blogs

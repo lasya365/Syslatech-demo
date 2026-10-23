@@ -1,5 +1,6 @@
 
 ---
+import { withBase } from "../utils/withBase.js";
 import { menus } from "../data/headerMenus.js";
 ---
 
@@ -14,12 +15,12 @@ import { menus } from "../data/headerMenus.js";
     <!-- Logo -->
     <a
       class="brand inline-flex min-w-0 flex-[0_0_178px] items-center no-underline max-[1180px]:flex-[0_0_145px] max-[900px]:flex-[0_0_158px] max-[420px]:flex-[0_0_145px]"
-      href="/"
+      href={withBase("/")}
       aria-label="Syslatech home"
     >
       <img
         class="brand-image block h-12 w-[178px] max-w-full object-contain object-left transition-[transform,filter] duration-300 ease-in-out hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(7,153,245,0.3)] max-[1180px]:w-[145px] max-[900px]:h-11 max-[900px]:w-[158px] max-[420px]:w-[145px]"
-        src="/images/syslatech-logo.svg"
+        src={withBase("/images/syslatech-logo.svg")}
         alt="SYSLATECH"
         width="180"
         height="52"
@@ -194,7 +195,7 @@ import { menus } from "../data/headerMenus.js";
       <!-- Blogs -->
       <a
         class="nav-link simple-link relative inline-flex min-h-11 items-center justify-center rounded-[7px] px-[11px] py-[10px] text-xs font-bold text-inherit no-underline whitespace-nowrap transition-colors duration-200 hover:text-[#006bb5] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] after:absolute after:right-[11px] after:bottom-[5px] after:left-[11px] after:h-0.5 after:rounded-sm after:bg-[#0799f5] after:content-[''] after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100 max-[1180px]:px-[7px] max-[1180px]:text-[11px] max-[900px]:min-h-12 max-[900px]:w-full max-[900px]:justify-start max-[900px]:px-[10px] max-[900px]:py-3 max-[900px]:text-[13px] max-[900px]:after:hidden max-[900px]:hover:bg-[#0799f5]/[0.09]"
-        href="/blogs"
+        href={withBase("/blogs")}
       >
         Blogs
       </a>
@@ -202,7 +203,7 @@ import { menus } from "../data/headerMenus.js";
       <!-- Contact button -->
       <a
         class="contact-button ml-[7px] inline-flex min-h-[45px] flex-none items-center justify-center gap-[10px] rounded-[7px] border border-[#0799f5] bg-[#0799f5] px-[18px] text-xs font-extrabold text-white no-underline whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-[#006bb5] hover:bg-[#006bb5] hover:shadow-[0_6px_20px_rgba(0,107,181,0.22)] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] [&_iconify-icon]:text-sm max-[1180px]:ml-[3px] max-[1180px]:gap-[6px] max-[1180px]:px-[11px] max-[1180px]:text-[11px] max-[900px]:mt-2 max-[900px]:mr-0 max-[900px]:mb-0 max-[900px]:ml-0 max-[900px]:min-h-[46px] max-[900px]:w-full max-[900px]:text-xs"
-        href="/contact"
+        href={withBase("/contact")}
       >
         Contact Us
 

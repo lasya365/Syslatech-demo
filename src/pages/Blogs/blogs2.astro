@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../../utils/withBase.js";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { blogs } from "../../data/blogsData.js";
@@ -9,7 +10,7 @@ const blog = blogs[1];
 <Layout title={`${blog.title} | Syslatech`} description={blog.description}>
   <main class="bg-white px-5 py-16 font-[Manrope,sans-serif] sm:px-8 lg:px-12">
     <article class="mx-auto max-w-4xl">
-      <a href="/Blogs/" class="mb-8 inline-flex text-sm font-semibold text-sky-700 hover:text-sky-900">
+      <a href={withBase("/blogs")} class="mb-8 inline-flex text-sm font-semibold text-sky-700 hover:text-sky-900">
         ← Back to All Blogs
       </a>
 
@@ -54,7 +55,7 @@ const blog = blogs[1];
         </p>
       </div>
 
-      <a href="/Blogs/" class="mt-10 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-sky-700">
+      <a href={withBase("/blogs")} class="mt-10 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-sky-700">
         Explore More Blogs
       </a>
     </article>

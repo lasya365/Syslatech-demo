@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/withBase.js";
 import Logo from "../assets/Logo.svg";
 import QuickLinks from "./QuickLinks.astro";
 import ContactUs from "./ContactUs.astro";
@@ -17,7 +18,7 @@ import GetInTouch from "./GetInTouch.astro";
     <!-- Column 1: Company branding -->
     <div class="min-w-0">
       <a
-        href="/"
+        href={withBase("/")}
         class="inline-flex items-center"
         aria-label="Syslatech home"
       >

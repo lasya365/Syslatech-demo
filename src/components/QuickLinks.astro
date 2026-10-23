@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/withBase.js";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -11,7 +12,7 @@ import { Icon } from "astro-icon/components";
   <ul class="m-0 flex list-none flex-col gap-3 p-0 md:gap-[14px]">
     <li>
       <a
-        href="/"
+        href={withBase("/")}
         class="group inline-flex items-center gap-2.5 text-sm leading-[1.7] text-body no-underline transition-colors duration-200 hover:text-brand-blue"
       >
         <Icon
@@ -25,7 +26,7 @@ import { Icon } from "astro-icon/components";
 
     <li>
       <a
-        href="/services"
+        href={withBase("/services")}
         class="group inline-flex items-center gap-2.5 text-sm leading-[1.7] text-body no-underline transition-colors duration-200 hover:text-brand-blue"
       >
         <Icon
@@ -39,7 +40,7 @@ import { Icon } from "astro-icon/components";
 
     <li>
       <a
-        href="/about"
+        href={withBase("/about")}
         class="group inline-flex items-center gap-2.5 text-sm leading-[1.7] text-body no-underline transition-colors duration-200 hover:text-brand-blue"
       >
         <Icon
@@ -53,7 +54,7 @@ import { Icon } from "astro-icon/components";
 
     <li>
       <a
-        href="/contact"
+        href={withBase("/contact")}
         class="group inline-flex items-center gap-2.5 text-sm leading-[1.7] text-body no-underline transition-colors duration-200 hover:text-brand-blue"
       >
         <Icon

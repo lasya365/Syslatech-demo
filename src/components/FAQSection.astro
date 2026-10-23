@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../utils/withBase.js";
 import { faqs } from "../data/faqs.js";
 import FAQItem from "./FAQItem.astro";
 ---
@@ -18,7 +19,7 @@ import FAQItem from "./FAQItem.astro";
       <div class="relative min-h-0 flex-1 overflow-hidden bg-brand-navy">
         <img
           class="absolute inset-0 h-full w-full object-contain object-center transition-transform duration-500 hover:scale-[1.02] motion-reduce:transition-none"
-          src="/faq-image.jpg"
+          src={withBase("/faq-image.jpg")}
           alt="Glowing digital question mark on a computer screen"
           loading="lazy"
           decoding="async"
@@ -40,7 +41,7 @@ import FAQItem from "./FAQItem.astro";
         </h3>
 
         <a
-          href="/contact"
+          href={withBase("/contact")}
           class="flex min-h-[46px] w-full items-center justify-center gap-3 rounded-full border border-brand-border bg-surface px-5 py-3 font-sans text-sm font-bold text-heading transition-colors duration-200 hover:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue sm:min-h-[48px] sm:text-base"
         >
           <span>Contact Us</span>
