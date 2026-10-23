@@ -18,20 +18,26 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
 
     <title>{title}</title>
 
-    
+    <!-- Establish early connections for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
 
+    <!-- Allow pages to add page-specific metadata and resources -->
     <slot name="head" />
   </head>
 
   <body>
-    <Header/>
+    <Header />
+
     <slot />
 
     <Footer />

@@ -1,0 +1,11 @@
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import { serviceData } from "../../data/serviceData.js";
+
+const service = serviceData["intelligent-testcare"];
+---
+
+<ServiceDetail
+  title={service.title}
+  description={service.description}
+/>

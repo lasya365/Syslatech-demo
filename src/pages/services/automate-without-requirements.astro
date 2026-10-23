@@ -1,0 +1,12 @@
+
+---
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import { serviceData } from "../../data/serviceData.js";
+
+const service = serviceData["automate-without-requirements"];
+---
+
+<ServiceDetail
+  title={service.title}
+  description={service.description}
+/>

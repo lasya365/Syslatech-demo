@@ -1,14 +1,7 @@
 
 ---
-import { menus } from "../data/HeaderMenus.js";
+import { menus } from "../data/headerMenus.js";
 ---
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
 
 <header
   class="site-header relative z-[1000] w-full font-[Manrope,sans-serif] text-[#081727] bg-gradient-to-r from-[#d4edff] to-[#f5fbff] border-b border-[#0799f5]/20 transition-[background-color,box-shadow,border-color] duration-250 ease-in-out [&_*]:box-border
@@ -65,21 +58,40 @@ import { menus } from "../data/HeaderMenus.js";
           class="nav-item group/navitem relative min-[901px]:static w-auto max-[900px]:w-full"
           data-nav-item
         >
-          <button
-            class="nav-link dropdown-trigger relative inline-flex min-h-11 items-center justify-center gap-[7px] rounded-[7px] border-0 bg-transparent px-[11px] py-[10px] text-xs font-bold leading-normal text-inherit no-underline whitespace-nowrap cursor-pointer transition-[color,background-color] duration-200 hover:text-[#006bb5] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] after:absolute after:right-[11px] after:bottom-[5px] after:left-[11px] after:h-0.5 after:rounded-sm after:bg-[#0799f5] after:content-[''] after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100 [.is-open_>_&]:text-[#006bb5] [.is-open_>_&]:after:scale-x-100 max-[1180px]:gap-[5px] max-[1180px]:px-[7px] max-[1180px]:text-[11px] max-[900px]:min-h-12 max-[900px]:w-full max-[900px]:justify-between max-[900px]:px-[10px] max-[900px]:py-3 max-[900px]:text-[13px] max-[900px]:text-left max-[900px]:after:hidden max-[900px]:hover:bg-[#0799f5]/[0.09] max-[900px]:[.is-open_>_&]:bg-[#0799f5]/[0.09]"
-            type="button"
-            aria-expanded="false"
-            aria-controls={`menu-${menu.key}`}
-            data-dropdown-trigger
-          >
-            {menu.label}
+          
+{menu.key === "services" ? (
+  <button
+    class="nav-link dropdown-trigger relative inline-flex min-h-11 items-center justify-center gap-[7px] rounded-[7px] border-0 bg-transparent px-[11px] py-[10px] text-xs font-bold leading-normal text-inherit no-underline whitespace-nowrap cursor-pointer transition-[color,background-color] duration-200 hover:text-[#006bb5] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] after:absolute after:right-[11px] after:bottom-[5px] after:left-[11px] after:h-0.5 after:rounded-sm after:bg-[#0799f5] after:content-[''] after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100 max-[1180px]:gap-[5px] max-[1180px]:px-[7px] max-[1180px]:text-[11px] max-[900px]:min-h-12 max-[900px]:w-full max-[900px]:justify-between max-[900px]:px-[10px] max-[900px]:py-3 max-[900px]:text-[13px] max-[900px]:text-left max-[900px]:after:hidden max-[900px]:hover:bg-[#0799f5]/[0.09]"
+    type="button"
+    aria-expanded="false"
+    aria-controls={`menu-${menu.key}`}
+    data-dropdown-trigger
+  >
+    {menu.label}
+    <iconify-icon
+      icon="mdi:chevron-down"
+      class="nav-chevron ml-1 inline-block shrink-0 text-sm transition-transform duration-200 [.is-open_&]:rotate-180"
+      aria-hidden="true"
+    ></iconify-icon>
+  </button>
+) : (
 
-            <iconify-icon
-              icon="mdi:chevron-down"
-              class="nav-chevron shrink-0 text-[10px] transition-transform duration-200 [.is-open_&]:rotate-180"
-              aria-hidden="true"
-            ></iconify-icon>
-          </button>
+            <button
+              class="nav-link dropdown-trigger relative inline-flex min-h-11 items-center justify-center gap-[7px] rounded-[7px] border-0 bg-transparent px-[11px] py-[10px] text-xs font-bold leading-normal text-inherit no-underline whitespace-nowrap cursor-pointer transition-[color,background-color] duration-200 hover:text-[#006bb5] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] after:absolute after:right-[11px] after:bottom-[5px] after:left-[11px] after:h-0.5 after:rounded-sm after:bg-[#0799f5] after:content-[''] after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100 [.is-open_>_&]:text-[#006bb5] [.is-open_>_&]:after:scale-x-100 max-[1180px]:gap-[5px] max-[1180px]:px-[7px] max-[1180px]:text-[11px] max-[900px]:min-h-12 max-[900px]:w-full max-[900px]:justify-between max-[900px]:px-[10px] max-[900px]:py-3 max-[900px]:text-[13px] max-[900px]:text-left max-[900px]:after:hidden max-[900px]:hover:bg-[#0799f5]/[0.09] max-[900px]:[.is-open_>_&]:bg-[#0799f5]/[0.09]"
+              type="button"
+              aria-expanded="false"
+              aria-controls={`menu-${menu.key}`}
+              data-dropdown-trigger
+            >
+              {menu.label}
+
+              <iconify-icon
+                icon="mdi:chevron-down"
+                class="nav-chevron shrink-0 text-[10px] transition-transform duration-200 [.is-open_&]:rotate-180"
+                aria-hidden="true"
+              ></iconify-icon>
+            </button>
+          )}
 
           <!-- Mega menu -->
           <div
@@ -132,7 +144,7 @@ import { menus } from "../data/HeaderMenus.js";
               >
                 {menu.items.map((item) => (
                   <a
-                    class="mega-card group/card relative flex min-h-[112px] min-w-0 items-start gap-3 rounded-[10px] border border-[#0799f5]/[0.18] bg-[#f5fbff] pt-[15px] pr-[27px] pb-[15px] pl-[14px] text-[#081727] no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-[#0799f5]/[0.55] hover:bg-[#e5f4ff] hover:shadow-[0_9px_22px_rgba(7,153,245,0.12)] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] max-[900px]:min-h-[80px] max-[900px]:bg-[#f5fbff] max-[900px]:pt-3 max-[900px]:pr-[30px] max-[900px]:pb-3 max-[900px]:pl-3"
+                    class="mega-card group/card relative flex min-h-[112px] min-w-0 items-start gap-3 rounded-[10px] border border-[#0799f5]/[0.18] bg-[#f5fbff] pt-[15px] pr-[27px] pb-[15px] pl-[14px] text-[#081727] font-[inherit]  no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-[#0799f5]/[0.55] hover:bg-[#e5f4ff] hover:shadow-[0_9px_22px_rgba(7,153,245,0.12)] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] max-[900px]:min-h-[80px] max-[900px]:bg-[#f5fbff] max-[900px]:pt-3 max-[900px]:pr-[30px] max-[900px]:pb-3 max-[900px]:pl-3"
                     href={item.href || menu.href}
                     aria-label={`${item.title}: ${item.description}`}
                   >
@@ -182,7 +194,7 @@ import { menus } from "../data/HeaderMenus.js";
       <!-- Blogs -->
       <a
         class="nav-link simple-link relative inline-flex min-h-11 items-center justify-center rounded-[7px] px-[11px] py-[10px] text-xs font-bold text-inherit no-underline whitespace-nowrap transition-colors duration-200 hover:text-[#006bb5] focus-visible:outline-2 focus-visible:outline-[#006bb5] focus-visible:outline-offset-[3px] after:absolute after:right-[11px] after:bottom-[5px] after:left-[11px] after:h-0.5 after:rounded-sm after:bg-[#0799f5] after:content-[''] after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100 max-[1180px]:px-[7px] max-[1180px]:text-[11px] max-[900px]:min-h-12 max-[900px]:w-full max-[900px]:justify-start max-[900px]:px-[10px] max-[900px]:py-3 max-[900px]:text-[13px] max-[900px]:after:hidden max-[900px]:hover:bg-[#0799f5]/[0.09]"
-        href="/blogs/"
+        href="/blogs"
       >
         Blogs
       </a>

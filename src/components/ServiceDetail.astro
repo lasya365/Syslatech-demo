@@ -1,0 +1,137 @@
+
+---
+import Layout from "../layouts/Layout.astro";
+import { serviceImages, sharedHero } from "../data/serviceData.js";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={`${title} | SyslaTech`}>
+  <main class="min-h-screen bg-white text-[#081727] [font-family:inherit]">
+    <!-- Shared hero section -->
+    <section class="relative overflow-hidden bg-[#f5fbff]">
+      <div
+        class="mx-auto grid max-w-7xl items-center gap-6 px-6 py-8 md:grid-cols-2 md:gap-10 md:px-10 md:py-12"
+      >
+        <div>
+          <p
+            class="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#0799f5] md:text-sm"
+          >
+            OUR SERVICES
+          </p>
+
+          <h1
+            class="max-w-2xl text-3xl font-extrabold leading-tight tracking-tight md:text-5xl"
+          >
+            {sharedHero.heading}
+          </h1>
+
+          <p
+            class="mt-4 max-w-xl text-sm leading-7 text-[#62798b] md:text-base md:leading-8"
+          >
+            {description}
+          </p>
+
+          <a
+            href="/contact"
+            class="mt-5 inline-flex items-center gap-3 rounded-lg bg-[#0799f5] px-5 py-3 text-sm font-bold text-white no-underline transition duration-300 hover:bg-[#006bb5] hover:shadow-lg md:text-base"
+          >
+            Contact Us
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="flex justify-center">
+          <img
+            src={sharedHero.logo}
+            alt="SyslaTech"
+            class="h-auto w-full max-w-[220px] object-contain md:max-w-xs"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <img
+        src={sharedHero.bottomVector}
+        alt=""
+        aria-hidden="true"
+        class="block max-h-8 w-full object-cover object-top md:max-h-12"
+        loading="lazy"
+      />
+    </section>
+
+    <!-- Shared AI Services section -->
+    <section
+      class="mx-auto max-w-7xl px-5 py-12 md:px-10 md:py-16"
+    >
+      <div class="mb-10 max-w-3xl md:mb-12">
+        <p
+          class="mb-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#0799f5] md:text-sm"
+        >
+          EXPLORE OUR CAPABILITIES
+        </p>
+
+        <h2 class="text-2xl font-extrabold tracking-tight md:text-4xl">
+          AI SERVICES
+        </h2>
+
+        <p
+          class="mt-3 text-sm leading-6 text-[#62798b] md:text-base md:leading-7"
+        >
+          Discover intelligent testing solutions that help improve coverage,
+          simplify automation, and deliver reliable software.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-6 md:gap-8">
+        {serviceImages.map((service, index) => (
+          <article
+            class:list={[
+              "grid items-center gap-5 overflow-hidden rounded-2xl bg-[#f5fbff] px-5 py-6 sm:grid-cols-2 sm:gap-8 sm:px-8 md:gap-12 md:px-12 md:py-10",
+              index % 2 === 1 &&
+                "sm:[&>div:first-child]:order-2",
+            ]}
+          >
+            <!-- Service image -->
+            <div
+              class="flex min-h-56 items-center justify-center md:min-h-72"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                class="h-48 w-full object-contain md:h-64"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Service content -->
+            <div class="py-2 md:px-3">
+              <p
+                class="mb-3 text-2xl font-bold text-[#0799f5] md:mb-4 md:text-3xl"
+              >
+                {service.number}
+              </p>
+
+              <h3
+                class="text-xl font-bold leading-snug tracking-tight md:text-2xl"
+              >
+                {service.title}
+              </h3>
+
+              <p
+                class="mt-3 max-w-xl text-sm leading-7 text-[#62798b] md:mt-4 md:text-base"
+              >
+                {service.description}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

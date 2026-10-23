@@ -1,15 +1,16 @@
+
 const solutions = [
   {
     title: "Web Testing",
     description: "Ensure web applications deliver reliable performance and quality.",
     icon: "mdi:web",
-    href: "",
+    href: "/#solutions",
   },
   {
     title: "Mobile Testing",
     description: "Test mobile applications across devices and platforms.",
     icon: "mdi:cellphone",
-    href: "",
+    href: "/#solutions",
   },
   {
     title: "API Testing",
@@ -21,19 +22,19 @@ const solutions = [
     title: "Desktop Testing",
     description: "Improve the quality of desktop applications through testing.",
     icon: "mdi:monitor",
-    href: "",
+    href: "/#solutions",
   },
   {
     title: "Salesforce Testing",
     description: "Verify Salesforce workflows and business applications.",
     icon: "mdi:cloud-check",
-    href: "",
+    href: "/#solutions",
   },
   {
     title: "Database Testing",
     description: "Check database accuracy, consistency, and reliability.",
     icon: "mdi:database-check",
-    href: "",
+    href: "/#solutions",
   },
 ];
 
@@ -42,55 +43,55 @@ const services = [
     title: "Intelligent Testcare",
     description: "Smart test intelligence for reliable software quality.",
     icon: "mdi:lightbulb-outline",
-    href: "",
+    href: "/services/intelligent-testcare",
   },
   {
     title: "Natural Language Test Authoring",
     description: "Write test cases as easily as plain English commands.",
     icon: "mdi:message-text-outline",
-    href: "",
+    href: "/services/natural-language-test-authoring",
   },
   {
     title: "Quality Test Scripts",
     description: "Robust, accurate scripts built for real-world scenarios.",
     icon: "mdi:file-code-outline",
-    href: "",
+    href: "/services/quality-test-scripts",
   },
   {
     title: "AI Powered Framework Development",
     description: "AI-driven test frameworks that build themselves.",
     icon: "mdi:graph-outline",
-    href: "",
+    href: "/services/ai-powered-framework-development",
   },
   {
     title: "Adaptive Test Maintenance",
     description: "Self-healing tests that evolve with your application.",
     icon: "mdi:autorenew",
-    href: "",
+    href: "/services/adaptive-test-maintenance",
   },
   {
     title: "Supports All Platforms",
     description: "Unified automation across web, mobile, desktop, and APIs.",
     icon: "mdi:view-grid-outline",
-    href: "",
+    href: "/services/supports-all-platforms",
   },
   {
     title: "Automate Without Requirement",
     description: "Create automation even before requirements are defined.",
     icon: "mdi:auto-fix",
-    href: "",
+    href: "/services/automate-without-requirements",
   },
   {
     title: "AI Powered Test Optimisation",
     description: "AI that improves coverage, speed, and stability.",
     icon: "mdi:chart-line",
-    href: "",
+    href: "/services/ai-powered-test-optimisation",
   },
   {
     title: "Multi-Source Support",
     description: "Seamless testing from multiple data and system sources.",
     icon: "mdi:source-branch",
-    href: "",
+    href: "/services/multi-source-support",
   },
 ];
 
@@ -132,7 +133,7 @@ const tools = [
       "Low-code automation powered by AI. Faster test creation with minimal scripting.",
     icon: "mdi:robot-outline",
     logo: "/images/tools/Testigma.png",
-    href: "",
+    href: "https://testsigma.com/",
   },
   {
     title: "Selenium",
@@ -140,7 +141,7 @@ const tools = [
       "Scalable open-source web automation framework for web automation.",
     icon: "mdi:application-brackets-outline",
     logo: "/images/tools/Selenium.png",
-    href: "",
+    href: "https://www.selenium.dev/",
   },
   {
     title: "Playwright",
@@ -148,7 +149,7 @@ const tools = [
       "Fast and reliable end-to-end testing for modern applications.",
     icon: "mdi:play-circle-outline",
     logo: "/images/tools/Playwrite.png",
-    href: "",
+    href: "https://playwright.dev/",
   },
   {
     title: "Katalon Studio",
@@ -156,7 +157,7 @@ const tools = [
       "Unified testing for web, mobile, API and desktop applications.",
     icon: "mdi:monitor-dashboard",
     logo: "/images/tools/Katalon%20Studio.png",
-    href: "",
+    href: "https://katalon.com/",
   },
   {
     title: "Tricentis Tosca",
@@ -164,7 +165,7 @@ const tools = [
       "Enterprise-grade automation testing for complex business systems.",
     icon: "mdi:widgets-outline",
     logo: "/images/tools/Tricentis%20Tosca.png",
-    href: "",
+    href: "https://www.tricentis.com/",
   },
   {
     title: "Cypress",
@@ -172,7 +173,7 @@ const tools = [
       "Developer-friendly end-to-end testing for modern front-end applications.",
     icon: "mdi:check-box-outline",
     logo: "/images/tools/Cypress.png",
-    href: "",
+    href: "https://www.cypress.io/",
   },
 ];
 
@@ -185,7 +186,7 @@ const menus = [
     description:
       "Explore software testing solutions built around your quality goals.",
     action: "Explore solutions",
-    href: "/solutions/",
+    href: "/#solutions",
     items: solutions,
   },
   {
@@ -196,7 +197,7 @@ const menus = [
     description:
       "Discover services that help simplify software quality engineering.",
     action: "Explore services",
-    href: "/services/",
+    href: "",
     items: services,
   },
   {
@@ -207,7 +208,7 @@ const menus = [
     description:
       "Learn how expertise and tailored solutions can support your team.",
     action: "Why Syslatech",
-    href: "/why-partner-with-us/",
+    href: "/#why-partner-with-us",
     items: partners,
   },
   {
@@ -218,7 +219,7 @@ const menus = [
     description:
       "Explore technologies used in modern software testing.",
     action: "Explore technologies",
-    href: "/tools-tech/",
+    href: "/#tools-tech",
     items: tools,
   },
 ];
