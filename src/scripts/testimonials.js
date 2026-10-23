@@ -1,4 +1,3 @@
-
 const section = document.querySelector(".testimonials-section");
 
 if (section) {
@@ -88,12 +87,12 @@ if (section) {
   }
 
   // Previous arrow.
-  previousButton.addEventListener("click", () => {
+  previousButton?.addEventListener("click", () => {
     move(-1);
   });
 
   // Next arrow.
-  nextButton.addEventListener("click", () => {
+  nextButton?.addEventListener("click", () => {
     move(1);
   });
 
@@ -105,6 +104,41 @@ if (section) {
       currentIndex = index;
       updateCarousel(false);
     });
+  });
+
+  // =====================================
+  // Swipe support for touch devices
+  // =====================================
+
+  let startX = null;
+
+  section.addEventListener("pointerdown", (e) => {
+    // Detect touch and stylus input, not mouse clicks.
+    if (e.pointerType !== "mouse") {
+      startX = e.clientX;
+    }
+  });
+
+  section.addEventListener("pointerup", (e) => {
+    if (startX === null) return;
+
+    const dx = e.clientX - startX;
+    startX = null;
+
+    // Ignore small movements to avoid accidental swipes.
+    if (Math.abs(dx) > 40) {
+      move(dx < 0 ? 1 : -1);
+    }
+  });
+
+  // Reset if the browser interrupts the pointer interaction.
+  section.addEventListener("pointercancel", () => {
+    startX = null;
+  });
+
+  // Clear the starting point if the pointer leaves the section.
+  section.addEventListener("pointerleave", () => {
+    startX = null;
   });
 
   // Set the initial layout.

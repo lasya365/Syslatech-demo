@@ -1,7 +1,6 @@
 ---
 import TestimonialCard from "./TestimonialCard.astro";
 import { testimonials, initialIndex } from "../data/testimonials.js";
-import "../styles/testimonials.css";
 ---
 
 <section
@@ -24,9 +23,15 @@ import "../styles/testimonials.css";
     </h2>
   </header>
 
-  <div class="testimonials-carousel relative mx-auto mt-8 w-full max-w-6xl">
+  <div
+    class="testimonials-carousel relative mx-auto mt-12 h-[320px] w-full max-w-6xl touch-pan-y
+           max-[1100px]:max-w-[900px]
+           max-[700px]:mt-8 max-[700px]:h-[290px]"
+  >
     <button
-      class="testimonial-arrow testimonial-prev absolute top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+      class="testimonial-arrow testimonial-prev absolute left-[calc((1200px_-_100vw)/2_+_24px)] top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none
+             max-[1100px]:left-[-38px]
+             max-[700px]:left-[-4px] max-[700px]:size-[34px] max-[700px]:text-[20px]"
       type="button"
       aria-label="Previous testimonial"
     >
@@ -45,7 +50,9 @@ import "../styles/testimonials.css";
     </div>
 
     <button
-      class="testimonial-arrow testimonial-next absolute top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+      class="testimonial-arrow testimonial-next absolute right-[calc((1200px_-_100vw)/2_+_24px)] top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none
+             max-[1100px]:right-[-38px]
+             max-[700px]:right-[-4px] max-[700px]:size-[34px] max-[700px]:text-[20px]"
       type="button"
       aria-label="Next testimonial"
     >
@@ -60,7 +67,7 @@ import "../styles/testimonials.css";
     {
       testimonials.map((_, index) => (
         <button
-          class="testimonial-dot h-[7px] w-[7px] shrink-0 rounded-full bg-[#B8D5E8] p-0 transition-[width,background-color] duration-200 aria-[current=true]:w-[21px] aria-[current=true]:rounded-lg aria-[current=true]:bg-brand-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+          class="testimonial-dot h-[10px] w-[10px] shrink-0 rounded-full bg-[#B8D5E8] p-0 transition-[width,background-color] duration-200 aria-[current=true]:w-[26px] aria-[current=true]:rounded-lg aria-[current=true]:bg-brand-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
           type="button"
           data-dot-index={index}
           aria-label={`Show testimonial ${index + 1}`}
