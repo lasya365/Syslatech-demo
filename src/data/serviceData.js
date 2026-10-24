@@ -1,67 +1,75 @@
-
+import aiImage1 from "../assets/Tools/ai-image1.png";
+import aiImage2 from "../assets/Tools/ai-image2.png";
+import aiImage3 from "../assets/Tools/ai-image3.png";
+import aiImage4 from "../assets/Tools/ai-image4.png";
+import aiImage5 from "../assets/Tools/ai-image5.png";
+import aiImage6 from "../assets/Tools/ai-image6.png";
+import aiImage7 from "../assets/Tools/ai-image7.png";
+import aiImage8 from "../assets/Tools/ai-image8.png";
+import aiImage9 from "../assets/Tools/ai-image9.png";
 const serviceImages = [
   {
     number: "01",
     title: "INTELLIGENT TEST CASE GENERATION",
     description:
       "Automatically creates optimized test cases with higher coverage.",
-    image: "https://syslatech.com/Images/services/ai-image1.png",
+    image: aiImage1,
   },
   {
     number: "02",
     title: "QUALITY TEST SCRIPTS",
     description:
       "Delivers stable, reusable, and high-quality automation scripts.",
-    image: "https://syslatech.com/Images/services/ai-image2.png",
+    image: aiImage2,
   },
   {
     number: "03",
     title: "NATURAL LANGUAGE TEST AUTHORING",
     description:
       "Create test cases using simple, human-readable language.",
-    image: "https://syslatech.com/Images/services/ai-image3.png",
+    image: aiImage3,
   },
   {
     number: "04",
     title: "AI-POWERED FRAMEWORK DEVELOPMENT",
     description:
       "Builds intelligent automation frameworks for modern applications.",
-    image: "https://syslatech.com/Images/services/ai-image4.png",
+    image: aiImage4,
   },
   {
     number: "05",
     title: "ADAPTIVE TEST MAINTENANCE",
     description:
       "Self-updating tests that adapt to application changes.",
-    image: "https://syslatech.com/Images/services/ai-image5.png",
+    image: aiImage5,
   },
   {
     number: "06",
     title: "SUPPORTS ALL PLATFORMS",
     description:
       "Seamless testing across web, mobile, desktop & APIs.",
-    image: "https://syslatech.com/Images/services/ai-image6.png",
+    image: aiImage6,
   },
   {
     number: "07",
     title: "MULTI-SOURCE SUPPORT",
     description:
       "Integrates with multiple data sources and tools effortlessly.",
-    image: "https://syslatech.com/Images/services/ai-image7.png",
+    image: aiImage7,
   },
   {
     number: "08",
     title: "AUTOMATE WITHOUT REQUIREMENTS",
     description:
       "Enables automation even with minimal or evolving documentation.",
-    image: "https://syslatech.com/Images/services/ai-image8.png",
+    image: aiImage8,
   },
   {
     number: "09",
     title: "AI-POWERED TEST OPTIMISATION",
     description:
       "Continuously improves test efficiency and execution speed.",
-    image: "https://syslatech.com/Images/services/ai-image9.png",
+    image: aiImage9,
   },
 ];
 

@@ -58,23 +58,52 @@ const imageDelay = imageAnimationDelays[index] ?? "0s";
     <div
       class="orbit-wrapper relative isolate flex w-full max-w-[540px] items-center justify-center max-[760px]:max-w-[340px]"
     >
-      <!-- Inner circular glow -->
-      <div
-        class="pointer-events-none absolute left-[85%] top-[75%] z-0 aspect-square w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#0799f5]/20 shadow-[0_0_18px_rgba(7,153,245,0.12),inset_0_0_18px_rgba(7,153,245,0.08)] animate-[hero-orbit-glow_6s_ease-in-out_infinite] max-[760px]:right-[35%] max-[760px]:top-[80%] max-[760px]:w-[65%]"
-      ></div>
+      
 
-      <!-- Outer elliptical orbit -->
-      <div
-        class="pointer-events-none absolute left-[85%] top-[75%] z-0 h-[52%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-[#0799f5]/20 shadow-[0_0_24px_rgba(7,153,245,0.1)] animate-[hero-orbit-rotate_12s_linear_infinite] max-[760px]:right-[35%] max-[760px]:top-[80%] max-[760px]:h-[55%] max-[760px]:w-[85%]"
-      ></div>
+<!-- Orbit container -->
+<div class="orbits pointer-events-none absolute inset-0 z-0">
+
+  <!-- Circular orbit -->
+  
+<div
+  class="disc absolute left-1/2 top-1/2 aspect-square w-[72%]
+  -translate-x-1/2 -translate-y-1/2 rounded-full
+  border-2 border-[#0799f5]/20
+  shadow-[0_0_18px_rgba(7,153,245,0.12),inset_0_0_18px_rgba(7,153,245,0.08)]"
+></div>
+
+
+  <!-- Elliptical orbit -->
+  <svg
+    class="absolute left-[100%] top-[90%] h-full w-full
+    -translate-x-1/2 -translate-y-1/2
+    animate-[hero-orbit-rotate_12s_linear_infinite]"
+    viewBox="0 0 400 400"
+    fill="none"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <ellipse
+      cx="200"
+      cy="200"
+      rx="200"
+      ry="125"
+      stroke="#0799f5"
+      stroke-opacity="0.25"
+      stroke-width="1.5"
+    />
+  </svg>
+
+</div>
+
 
       <!-- Main illustration -->
       <Image
-        class="relative z-10 block h-auto max-h-[390px] w-full max-w-[540px] object-contain drop-shadow-[0_18px_22px_rgba(13,93,145,0.12)] animate-[hero-floating-image_4s_ease-in-out_infinite] max-[760px]:max-h-[240px]"
+        class="relative z-10 block h-auto max-h-[320px] w-full max-w-[450px] object-contain drop-shadow-[0_18px_22px_rgba(13,93,145,0.12)] animate-[hero-floating-image_4s_ease-in-out_infinite] max-[760px]:max-h-[240px]"
         style={`animation-delay: ${imageDelay};`}
         src={slide.image}
         alt={slide.title}
-        width={540}
+        width={450}
         format="webp"
         quality={80}
         loading={index === 0 ? "eager" : "lazy"}
@@ -108,15 +137,17 @@ const imageDelay = imageAnimationDelays[index] ?? "0s";
     }
   }
 
-  @keyframes hero-orbit-rotate {
-    from {
-      transform: translate(-50%, -50%) rotate(-25deg);
-    }
 
-    to {
-      transform: translate(-50%, -50%) rotate(335deg);
-    }
+@keyframes hero-orbit-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(-25deg);
   }
+
+  to {
+    transform: translate(-50%, -50%) rotate(335deg);
+  }
+}
+
 
   @keyframes hero-orbit-glow {
     0%,

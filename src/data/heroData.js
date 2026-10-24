@@ -1,9 +1,9 @@
 
-import heroImage1 from "../assets/Tools/Hero-image-1.png";
-import heroImage2 from "../assets/Tools/Hero-image-2.png";
-import heroImage3 from "../assets/Tools/Hero-image-3.png";
-import heroImage4 from "../assets/Tools/Hero-image-4.png";
-import heroImage5 from "../assets/Tools/Hero-image-5.png";
+import heroImage1 from "../assets/Tools/hero-1.webp";
+import heroImage2 from "../assets/Tools/hero-2.webp";
+import heroImage3 from "../assets/Tools/hero-3.webp";
+import heroImage4 from "../assets/Tools/hero-4.webp";
+import heroImage5 from "../assets/Tools/hero-5.webp";
 
 export const slides = [
   {

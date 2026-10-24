@@ -7,21 +7,40 @@ if (header) {
   const navItems = [...header.querySelectorAll("[data-nav-item]")];
   const mobileBreakpoint = window.matchMedia("(max-width: 900px)");
 
+  const closeTimers = new Map();
+  const CLOSE_DELAY = 180;
+
+  function cancelClose(item) {
+    const timer = closeTimers.get(item);
+
+    if (timer !== undefined) {
+      clearTimeout(timer);
+      closeTimers.delete(item);
+    }
+  }
+
+  function closeDropdown(item) {
+    cancelClose(item);
+
+    item.classList.remove("is-open");
+
+    const trigger = item.querySelector("[data-dropdown-trigger]");
+    trigger?.setAttribute("aria-expanded", "false");
+  }
+
   function closeDropdowns(exceptItem = null) {
     navItems.forEach((item) => {
       if (item === exceptItem) return;
-
-      item.classList.remove("is-open");
-
-      const trigger = item.querySelector("[data-dropdown-trigger]");
-      trigger?.setAttribute("aria-expanded", "false");
+      closeDropdown(item);
     });
   }
 
   function closeMobileMenu({ returnFocus = false } = {}) {
     header.classList.remove("menu-open");
+
     mobileToggle?.setAttribute("aria-expanded", "false");
     mobileToggle?.setAttribute("aria-label", "Open navigation menu");
+
     closeDropdowns();
 
     if (returnFocus) {
@@ -34,7 +53,9 @@ if (header) {
   }
 
   function openDropdown(item) {
+    cancelClose(item);
     closeDropdowns(item);
+
     item.classList.add("is-open");
 
     const trigger = item.querySelector("[data-dropdown-trigger]");
@@ -42,15 +63,39 @@ if (header) {
   }
 
   function toggleDropdown(item) {
+    cancelClose(item);
+
     if (item.classList.contains("is-open")) {
-      closeDropdowns();
+      closeDropdown(item);
     } else {
       openDropdown(item);
     }
   }
 
-  // Keep the existing scroll effect.
+  function scheduleClose(item) {
+    cancelClose(item);
+
+    const timer = setTimeout(() => {
+      closeTimers.delete(item);
+
+      // Keep the menu open if the pointer or keyboard focus
+      // is still inside this navigation item.
+      if (
+        item.matches(":hover") ||
+        item.contains(document.activeElement)
+      ) {
+        return;
+      }
+
+      closeDropdown(item);
+    }, CLOSE_DELAY);
+
+    closeTimers.set(item, timer);
+  }
+
+  // Existing header scroll effect.
   updateHeaderOnScroll();
+
   window.addEventListener("scroll", updateHeaderOnScroll, {
     passive: true,
   });
@@ -70,7 +115,7 @@ if (header) {
     }
   });
 
-  // Dropdown buttons work with both mouse and keyboard.
+  // Dropdown behavior for desktop, mouse, and keyboard.
   navItems.forEach((item) => {
     const trigger = item.querySelector("[data-dropdown-trigger]");
 
@@ -78,23 +123,30 @@ if (header) {
       toggleDropdown(item);
     });
 
-    // Keep hover behavior on desktop.
+    // Open the dropdown when the pointer enters its parent item.
     item.addEventListener("pointerenter", () => {
       if (mobileBreakpoint.matches) return;
+
       openDropdown(item);
     });
 
+    // Delay closing to allow the pointer to reach the cards.
     item.addEventListener("pointerleave", () => {
       if (mobileBreakpoint.matches) return;
 
-      // Don't close while keyboard focus remains inside the dropdown.
       if (item.contains(document.activeElement)) return;
 
-      item.classList.remove("is-open");
-      trigger?.setAttribute("aria-expanded", "false");
+      scheduleClose(item);
     });
 
-    // Close the dropdown when keyboard focus leaves the entire item.
+    // Cancel closing if the pointer returns to the item.
+    item.addEventListener("pointermove", () => {
+      if (mobileBreakpoint.matches) return;
+
+      cancelClose(item);
+    });
+
+    // Close after keyboard focus leaves the complete dropdown.
     item.addEventListener("focusout", (event) => {
       const nextTarget = event.relatedTarget;
 
@@ -102,14 +154,15 @@ if (header) {
         return;
       }
 
-      if (!mobileBreakpoint.matches && !item.matches(":hover")) {
-        item.classList.remove("is-open");
-        trigger?.setAttribute("aria-expanded", "false");
+      if (mobileBreakpoint.matches || item.matches(":hover")) {
+        return;
       }
+
+      scheduleClose(item);
     });
   });
 
-  // Escape closes the most relevant open menu and restores focus.
+  // Escape closes the open dropdown and restores focus.
   header.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
 
@@ -143,12 +196,12 @@ if (header) {
     }
   });
 
-  // Reset the mobile menu when switching to desktop width.
+  // Reset navigation when switching between mobile and desktop.
   mobileBreakpoint.addEventListener("change", (event) => {
+    closeDropdowns();
+
     if (!event.matches) {
       closeMobileMenu();
-    } else {
-      closeDropdowns();
     }
   });
 

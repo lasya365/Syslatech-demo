@@ -2,6 +2,7 @@
 ---
 import { withBase } from "../utils/withBase.js";
 import { menus } from "../data/headerMenus.js";
+import logo from "../assets/logo.svg";
 ---
 
 <header
@@ -19,8 +20,8 @@ import { menus } from "../data/headerMenus.js";
       aria-label="Syslatech home"
     >
       <img
-        class="brand-image block h-12 w-[178px] max-w-full object-contain object-left transition-[transform,filter] duration-300 ease-in-out hover:scale-105 hover:drop-shadow-[0_0_6px_rgba(7,153,245,0.3)] max-[1180px]:w-[145px] max-[900px]:h-11 max-[900px]:w-[158px] max-[420px]:w-[145px]"
-        src={withBase("/images/syslatech-logo.svg")}
+        class="brand-image block h-12 w-[178px] max-w-full object-contain object-left max-[1180px]:w-[145px] max-[900px]:h-11 max-[900px]:w-[158px] max-[420px]:w-[145px]"
+        src={logo.src}
         alt="SYSLATECH"
         width="180"
         height="52"
