@@ -9,10 +9,10 @@ import Layout from "../layouts/Layout.astro";
 >
   <main class="flex min-h-[500px] items-center justify-center bg-page px-4 py-8 text-body sm:px-6 sm:py-14">
     <section
-      class="grid w-full max-w-[900px] grid-cols-1 content-center gap-x-12 rounded-xl bg-surface p-5 shadow-[0_12px_35px_rgb(0_0_0/15%)] sm:p-9"
-      id="contact-form-section"
-      aria-labelledby="contact-heading"
-    >
+  class="grid w-full max-w-[900px] grid-cols-1 content-center gap-x-12 rounded-xl border border-brand-border bg-surface p-5 sm:p-9"
+  id="contact-form-section"
+  aria-labelledby="contact-heading"
+>
       <h1
         id="contact-heading"
         class="col-span-full mb-3 text-2xl font-extrabold leading-tight text-heading sm:text-[28px]"
@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
           Mobile Number *
         </label>
 
-        <div class="grid grid-cols-[minmax(100px,0.4fr)_minmax(0,1.6fr)] gap-2">
+        <div class="grid grid-cols-[100px_minmax(0,1fr)] gap-2">
           <select
             id="country-code"
             name="countryCode"
