@@ -1,0 +1,33 @@
+---
+import { solutions } from "../data/solutions.js";
+import SolutionCard from "./SolutionCard.astro";
+---
+
+<section
+  id="solutions"
+  class="relative overflow-hidden bg-[linear-gradient(115deg,#2e7da6_0%,#35a9ad_52%,#43c8ad_100%)] px-4 pt-6 pb-9 text-white sm:px-6 sm:pt-6 sm:pb-9 lg:px-6 lg:pt-2 lg:pb-[18px]"
+  aria-labelledby="solutions-heading"
+>
+  <div class="mx-auto w-full max-w-[800px]">
+    <h2
+      id="solutions-heading"
+      class="mb-7 text-center text-[21px] leading-[1.3] font-semibold tracking-[2px] text-white sm:mb-8 sm:text-[23px] lg:mb-12 lg:text-[25px]"
+    >
+      SOLUTIONS
+    </h2>
+
+    <div
+  class="grid grid-cols-1 items-stretch gap-4 min-[640px]:grid-cols-3 min-[640px]:gap-4"
+>
+      {solutions.map((solution) => (
+        <SolutionCard
+          title={solution.title}
+          subtitle={solution.subtitle}
+          description={solution.description}
+          icon={solution.icon}
+          href={solution.href}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+
+---
+import TestimonialCard from "./TestimonialCard.astro";
+import { testimonials, initialIndex } from "../data/testimonials.js";
+import "../styles/testimonials.css";
+---
+
+<section
+  class="testimonials-section overflow-hidden bg-page px-5 py-14 font-sans sm:px-8 lg:px-12 lg:py-20"
+  aria-labelledby="testimonials-heading"
+>
+  <header class="testimonials-heading mx-auto mb-10 max-w-4xl text-center sm:mb-12">
+    <p
+      class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-blue"
+    >
+      TESTIMONIALS
+    </p>
+
+    <h2
+      id="testimonials-heading"
+      class="text-3xl font-extrabold leading-tight tracking-tight text-heading sm:text-4xl lg:text-5xl"
+    >
+      VOICES OF TRUST: CLIENT STORIES, TESTIMONIALS THAT
+      ILLUMINATE OUR SHARED SUCCESS.
+    </h2>
+  </header>
+
+  <div class="testimonials-carousel relative mx-auto mt-8 w-full max-w-6xl">
+    <button
+      class="testimonial-arrow testimonial-prev absolute top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+      type="button"
+      aria-label="Previous testimonial"
+    >
+      &lt;
+    </button>
+
+    <div class="testimonial-track relative h-full w-full">
+      {
+        testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            testimonial={testimonial}
+            index={index}
+          />
+        ))
+      }
+    </div>
+
+    <button
+      class="testimonial-arrow testimonial-next absolute top-1/2 z-[5] grid size-[38px] -translate-y-1/2 place-items-center rounded-full border border-brand-border bg-surface p-0 text-[22px] font-normal leading-none text-brand-navy transition-colors duration-200 hover:border-brand-blue hover:bg-brand-blue hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+      type="button"
+      aria-label="Next testimonial"
+    >
+      &gt;
+    </button>
+  </div>
+
+  <nav
+    class="testimonial-dots mt-8 flex items-center justify-center gap-2.5"
+    aria-label="Choose a testimonial"
+  >
+    {
+      testimonials.map((testimonial, index) => (
+        <button
+          class="testimonial-dot h-[7px] w-[7px] shrink-0 rounded-full bg-[#B8D5E8] p-0 transition-[width,background-color] duration-200 aria-[current=true]:w-[21px] aria-[current=true]:rounded-lg aria-[current=true]:bg-brand-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-blue motion-reduce:transition-none"
+          type="button"
+          data-dot-index={index}
+          aria-label={`Show testimonial ${index + 1}`}
+          aria-current={index === initialIndex ? "true" : "false"}
+        ></button>
+      ))
+    }
+  </nav>
+</section>
+
+<script>
+  import "../scripts/testimonials.js";
+</script>

@@ -1,0 +1,55 @@
+---
+import QuickLinks from "./QuickLinks.astro";
+import ContactUs from "./ContactUs.astro";
+import GetInTouch from "./GetInTouch.astro";
+
+---
+
+
+<footer
+  class="border-t border-[#DCE5ED] bg-page px-[7%] pt-16 font-sans text-body antialiased max-md:px-6 max-md:pt-11"
+>
+  <!-- Footer content -->
+  <div
+  class="mx-auto grid max-w-[1250px] grid-cols-1 gap-9 pb-10 md:grid-cols-[1fr_1fr] md:gap-8 lg:grid-cols-[0.9fr_0.8fr_1fr_1.2fr] lg:gap-6 xl:grid-cols-[1.15fr_0.8fr_1.2fr_1.35fr] xl:gap-8 xl:pb-14"
+>
+    <!-- Column 1: Company branding -->
+    <div class="min-w-0">
+      <a
+        href="/"
+        class="inline-flex items-center"
+        aria-label="Syslatech home"
+      >
+        <img
+  src="/images/syslatech-logo.svg"
+  alt="Syslatech"
+  class="block h-auto w-[170px] object-contain md:w-[190px]"
+/>
+      </a>
+
+      <p
+        class="mt-3 max-w-[300px] text-sm leading-[1.85] text-body md:mt-[18px] md:max-w-[270px]"
+      >
+        Quality Engineering for a Smarter Digital Future
+      </p>
+    </div>
+
+    <!-- Column 2: Quick links -->
+    <QuickLinks />
+
+    <!-- Column 3: Contact details -->
+    <ContactUs />
+
+    <!-- Column 4: Contact form -->
+    <GetInTouch />
+  </div>
+
+  <!-- Copyright -->
+  <div
+    class="mx-auto max-w-[1250px] border-t border-white/15 py-5 text-center md:py-[22px]"
+  >
+    <p class="m-0 text-[11px] leading-[1.8] text-[#cbd5e1] md:text-xs">
+      Copyright © 2026-27 Syslatech Private Ltd Reserved All Rights
+    </p>
+  </div>
+</footer>
