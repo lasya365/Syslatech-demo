@@ -1,23 +1,9 @@
-
-name: Deploy to GitHub Pages - ${{ inputs.branch }} ${{ inputs.environment }}
+name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches: [lasya]
   workflow_dispatch:
-    inputs:
-      branch:
-        description: "Select the branch to build and deploy"
-        required: true
-        type: string
-        default: lasya
-      environment:
-        description: "Choose the deployment environment"
-        required: true
-        type: choice
-        options:
-          - staging
-          - prod
-        default: staging
-
 
 permissions:
   contents: read
@@ -31,45 +17,26 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      environment: ${{ inputs.environment }}
-      - name: Checkout selected branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.branch }}
-        
-
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Astro site
-        run: npm run build
+      - run: npm ci
+      - run: npm run build
         env:
           GITHUB_PAGES: 'true'
-          DEPLOY_ENV: ${{ inputs.environment }}
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
