@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const whyUsPages = [
+  {
+    title: "Experts in AI Tools",
+    description:
+      "Leverage AI-powered testing tools and intelligent automation to improve software quality and testing efficiency.",
+    href: "/Why-us/experts-in-ai-tools/",
+  },
+  {
+    title: "Industries We Serve",
+    description:
+      "Discover testing solutions designed to meet the unique quality requirements of different industries.",
+    href: "/Why-us/industriesWeServe/",
+  },
+  {
+    title: "Customized Solutions",
+    description:
+      "Get testing strategies tailored to your application's requirements, technology, and business goals.",
+    href: "/Why-us/customizedSolutions/",
+  },
+  {
+    title: "End-to-End Quality",
+    description:
+      "Support software quality throughout the development lifecycle with comprehensive testing approaches.",
+    href: "/Why-us/end-to-end-quality/",
+  },
+];
+---
+
+<Layout
+  title="Why Choose SyslaTech?"
+  description="Discover why SyslaTech is your partner for intelligent testing, customized solutions, and end-to-end software quality."
+>
+  <main class="min-h-screen bg-page text-brand-navy">
+    <section class="bg-[linear-gradient(110deg,#d4edff,#f5fbff)] px-5 py-16 text-center sm:py-20">
+      <div class="mx-auto max-w-4xl">
+        <p class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand-blue">
+          Why Choose SyslaTech
+        </p>
+
+        <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
+          Your Partner in Software Quality
+        </h1>
+
+        <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-body sm:text-lg">
+          Discover how our expertise, industry knowledge, customized testing
+          strategies, and end-to-end quality practices help deliver reliable
+          software.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-5 py-14 sm:px-8 sm:py-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-10 text-center">
+          <h2 class="text-2xl font-extrabold sm:text-3xl">
+            What Makes Us Different?
+          </h2>
+          <p class="mx-auto mt-3 max-w-2xl leading-7 text-body">
+            Explore the strengths that help us deliver effective software
+            testing and quality engineering solutions.
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {
+            whyUsPages.map((item, index) => (
+              <a
+                href={item.href}
+                class="group rounded-2xl border border-slate-200 bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-blue hover:shadow-lg sm:p-8"
+              >
+                <span class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-surface-blue font-bold text-brand-blue">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <h3 class="text-xl font-bold transition-colors group-hover:text-brand-blue">
+                  {item.title}
+                </h3>
+
+                <p class="mt-3 leading-7 text-body">
+                  {item.description}
+                </p>
+
+                <span class="mt-5 inline-flex items-center gap-2 font-semibold text-brand-blue">
+                  Explore more
+                  <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

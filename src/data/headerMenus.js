@@ -103,31 +103,30 @@ const partners = [
     description:
       "AI-powered testing for better accuracy and speed. Smart tools for advanced automation workflows. Reliable quality with intelligent test solutions.",
     icon: "mdi:creation",
-    href: "",
+    href: withBase("/Why-us/experts-in-ai-tools"),
   },
   {
     title: "Industries We Serve",
     description:
       "Quality assurance for multiple business domains. Industry-focused testing strategies and tools. Scalable solutions for growing enterprises.",
     icon: "mdi:domain",
-    href: "",
+    href: withBase("/Why-us/industriesWeServe"),
   },
   {
     title: "Customised Solutions",
     description:
       "Tailored solutions for unique business needs, flexible automation frameworks, and scalable quality workflows.",
     icon: "mdi:tune-variant",
-    href: "",
+    href: withBase("/Why-us/customizedSolutions"),
   },
   {
     title: "End-to-End Quality Delivery",
     description:
       "From validation to final sign-off, our QA teams take responsibility for quality delivery—ensuring your product is release-ready, reliable, and user-approved.",
     icon: "mdi:check-circle-outline",
-    href: "",
+    href: withBase("/Why-us/end-to-end-quality"),
   },
 ];
-
 const tools = [
   {
     title: "Testsigma",
@@ -188,7 +187,7 @@ const menus = [
     description:
       "Explore software testing solutions built around your quality goals.",
     action: "Explore solutions",
-    href: "",
+    href: withBase("/#solutions"),
     items: solutions,
   },
   {
@@ -199,7 +198,7 @@ const menus = [
     description:
       "Discover services that help simplify software quality engineering.",
     action: "Explore services",
-    href: "",
+    href: withBase("/services/intelligent-testcare"),
     items: services,
   },
   {
@@ -210,7 +209,7 @@ const menus = [
     description:
       "Learn how expertise and tailored solutions can support your team.",
     action: "Why Syslatech",
-    href: withBase("/#why-partner-with-us"),
+    href: withBase("/Why-us/experts-in-ai-tools"),
     items: partners,
   },
   {

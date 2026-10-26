@@ -21,6 +21,7 @@ export const toolsTechnology = {
       angle: 0,
       description:
         "Low-code automation powered by AI. Faster test creation with minimal scripting.",
+      href: "https://testsigma.com/",
     },
     {
       name: "Selenium",
@@ -28,6 +29,7 @@ export const toolsTechnology = {
       angle: 60,
       description:
         "Scalable open-source web automation framework. Ideal for complex and enterprise applications.",
+      href: "https://www.selenium.dev/",
     },
     {
       name: "Playwright",
@@ -35,6 +37,7 @@ export const toolsTechnology = {
       angle: 120,
       description:
         "Fast and reliable end-to-end testing. Built for modern JavaScript applications.",
+      href: "https://playwright.dev/",
     },
     {
       name: "Cypress",
@@ -42,6 +45,7 @@ export const toolsTechnology = {
       angle: 180,
       description:
         "Fast and developer-friendly testing framework. Perfect for modern front-end applications.",
+      href: "https://www.cypress.io/",
     },
     {
       name: "Katalon Studio",
@@ -49,6 +53,7 @@ export const toolsTechnology = {
       angle: 240,
       description:
         "Unified testing for web, mobile, API and desktop. Quick setup with built-in integrations.",
+      href: "https://katalon.com/",
     },
     {
       name: "Tricentis Tosca",
@@ -56,6 +61,7 @@ export const toolsTechnology = {
       angle: 300,
       description:
         "Enterprise-grade model-based automation tool. Designed for complex business systems.",
+      href: "https://www.tricentis.com/",
     },
   ],
 };

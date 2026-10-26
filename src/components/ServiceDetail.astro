@@ -89,51 +89,47 @@ const { title, description } = Astro.props;
         </p>
       </div>
 
-      <div class="flex flex-col gap-6 md:gap-8">
-        {serviceImages.map((service, index) => (
-          <article
-            class:list={[
-              "grid items-center gap-5 overflow-hidden rounded-2xl bg-[#f5fbff] px-5 py-6 sm:grid-cols-2 sm:gap-8 sm:px-8 md:gap-12 md:px-12 md:py-10",
-              index % 2 === 1 &&
-                "sm:[&>div:first-child]:order-2",
-            ]}
-          >
+      
+<div class="flex flex-col gap-5 md:gap-6">
+  {serviceImages.map((service, index) => (
+    <article
+      class:list={[
+        "grid items-center gap-4 rounded-xl bg-[#f5fbff] px-4 py-5 sm:grid-cols-2 sm:gap-6 sm:px-6 sm:py-6 md:gap-8 md:px-8 md:py-7",
+        index % 2 === 1 && "sm:[&>div:first-child]:order-2",
+      ]}
+    >
+      <!-- Service image -->
+      
 <!-- Service image -->
 <div class="flex items-center justify-center">
-  <div class="h-56 w-full overflow-hidden rounded-2xl border-2 border-[#d4edff] bg-white p-2 sm:h-64 md:h-72">
-    <img
-      src={service.image.src}
-      alt={service.title}
-      class="h-full w-full rounded-xl object-fill"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
+  <img
+    src={service.image.src}
+    alt={service.title}
+    class="block h-auto max-h-44 max-w-full rounded-xl object-contain sm:max-h-48 md:max-h-52"
+    loading="lazy"
+    decoding="async"
+  />
 </div>
 
-            <!-- Service content -->
-            <div class="py-2 md:px-3">
-              <p
-                class="mb-3 text-2xl font-bold text-[#0799f5] md:mb-4 md:text-3xl"
-              >
-                {service.number}
-              </p>
 
-              <h3
-                class="text-xl font-bold leading-snug tracking-tight md:text-2xl"
-              >
-                {service.title}
-              </h3>
+      <!-- Service content -->
+      <div class="py-1 sm:px-2">
+        <p class="mb-2 text-xl font-bold text-[#0799f5] md:text-2xl">
+          {service.number}
+        </p>
 
-              <p
-                class="mt-3 max-w-xl text-sm leading-7 text-[#62798b] md:mt-4 md:text-base"
-              >
-                {service.description}
-              </p>
-            </div>
-          </article>
-        ))}
+        <h3 class="text-lg font-bold leading-snug tracking-tight md:text-xl">
+          {service.title}
+        </h3>
+
+        <p class="mt-2 max-w-xl text-sm leading-6 text-[#62798b] md:mt-3 md:leading-7">
+          {service.description}
+        </p>
       </div>
+    </article>
+  ))}
+</div>
+
     </section>
   </main>
 </Layout>
