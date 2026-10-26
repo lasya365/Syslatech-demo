@@ -31,14 +31,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: ${{ inputs.environment }}
     steps:
-      environment: ${{ inputs.environment }}
       - name: Checkout selected branch
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.branch }}
-        
 
 
       - name: Setup Node.js
