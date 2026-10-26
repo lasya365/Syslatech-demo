@@ -1,5 +1,6 @@
 
-name: Deploy to GitHub Pages - ${{ inputs.branch }} ${{ inputs.environment }}
+name: Deploy to GitHub Pages
+run-name: Deploy - ${{ inputs.branch }} ${{ inputs.environment }}
 
 on:
   workflow_dispatch:
@@ -33,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
+
       - name: Checkout selected branch
         uses: actions/checkout@v4
         with:
