@@ -1,0 +1,52 @@
+---
+import { withBase } from "../utils/withBase.js";
+import aboutHeroImage from "../assets/about-hero.png";
+---
+
+<section
+  class="relative overflow-hidden bg-gradient-to-br from-surface-blue via-page to-white px-4 py-5 sm:px-8 sm:py-8 lg:px-12"
+  aria-labelledby="about-hero-title"
+>
+  <!-- Main hero panel -->
+  <div
+    class="relative mx-auto grid min-h-[390px] w-full max-w-site items-center gap-6 overflow-hidden rounded-[32px] border border-white/90 bg-surface/30 px-6 py-10 sm:px-10 lg:min-h-[405px] lg:grid-cols-[1.15fr_0.85fr] lg:gap-4 lg:px-16 lg:py-8"
+  >
+    <!-- Left: Logo and content -->
+    <div class="relative z-10">
+      <img
+        src={withBase("/images/syslatech-logo.svg")}
+        alt="Syslatech"
+        class="mb-6 h-auto w-36 sm:w-40"
+        width="180"
+        height="50"
+      />
+
+      <h1
+        id="about-hero-title"
+        class="max-w-2xl text-3xl font-bold leading-tight tracking-tight text-heading sm:text-4xl lg:text-[42px]"
+      >
+        Driving Quality Through
+        <span class="block">Innovation &amp; Expertise</span>
+      </h1>
+
+      <p
+        class="mt-4 max-w-xl text-sm leading-6 text-body sm:text-base sm:leading-7"
+      >
+        Empowering businesses with advanced testing solutions that ensure
+        performance, reliability, and long-term success.
+      </p>
+    </div>
+
+    <!-- Right: Larger hero illustration -->
+    <div class="relative flex items-center justify-center lg:-mr-8">
+      <img
+        src={aboutHeroImage.src}
+        alt="Illustration representing innovation and connected technology"
+        class="relative z-10 h-auto w-full max-w-[520px] object-contain lg:max-h-[370px] lg:scale-110"
+        width={aboutHeroImage.width}
+        height={aboutHeroImage.height}
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
