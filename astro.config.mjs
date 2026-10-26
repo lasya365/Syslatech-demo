@@ -11,7 +11,7 @@ export default defineConfig({
 
   ...(githubPages && {
     site: 'https://lasya365.github.io',
-    base: process.env.BASE_URL,
+    base: '/Syslatech-demo',
   }),
 
   adapter: node({
