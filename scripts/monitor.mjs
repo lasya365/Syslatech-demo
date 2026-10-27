@@ -105,3 +105,4 @@ ${overallStatus === "UP"
 }
 
 monitorWebsite();
+
